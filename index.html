@@ -22,7 +22,7 @@
             background-color: var(--bg-body); 
             color: var(--text-dark); 
             font-family: 'Poppins', sans-serif; 
-            padding-bottom: 150px; 
+            /* Padding bottom dihapus dari body, dipindah ke footer agar rapi */
             background-image: radial-gradient(#ffc1e3 15%, transparent 16%), radial-gradient(#ffc1e3 15%, transparent 16%);
             background-size: 30px 30px;
             background-position: 0 0, 15px 15px;
@@ -144,7 +144,7 @@
         /* OVERLAY STOCK KOSONG */
         .stock-overlay {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(0,0,0,0.7); /* Hitam transparan */
+            background: rgba(0,0,0,0.7);
             display: flex; align-items: center; justify-content: center;
             z-index: 2;
         }
@@ -210,6 +210,54 @@
         }
         .btn-disabled:hover { background-color: #ccc; color: #666; }
 
+        /* --- FOOTER BENEFITS (BARU) --- */
+        .promo-footer {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            color: var(--white);
+            text-align: center;
+            padding: 30px 20px 160px; /* Padding bawah besar agar tidak tertutup checkout bar */
+            margin-top: 40px;
+            border-top-left-radius: 50px;
+            border-top-right-radius: 50px;
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            position: relative;
+        }
+
+        .promo-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .benefit-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .benefit-item {
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid rgba(255,255,255,0.4);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            transition: 0.3s;
+        }
+        
+        .benefit-item:hover {
+            background: var(--white);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+
         /* --- CHECKOUT BAR --- */
         .checkout-container {
             position: fixed; bottom: 0; left: 0; right: 0;
@@ -271,6 +319,21 @@
         <div class="menu-grid" id="product-list">
             </div>
     </div>
+
+    <footer class="promo-footer">
+        <h3 class="promo-title">BONUS SPESIAL</h3>
+        <div class="benefit-list">
+            <div class="benefit-item">
+                <span style="font-size:1.2rem">🎁</span> Free Plastik Pembungkus
+            </div>
+            <div class="benefit-item">
+                <span style="font-size:1.2rem">🏷️</span> Free Stiker Label Nama
+            </div>
+            <div class="benefit-item">
+                <span style="font-size:1.2rem">⌨️</span> Free Pengetikan Nama Tamu
+            </div>
+        </div>
+    </footer>
 
     <div class="checkout-container" id="checkoutArea">
         <div class="data-form">
