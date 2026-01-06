@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rana Printing - Katalog Undangan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --primary: #d63384; 
+            --primary-dark: #a61e61;
+            --accent: #ff85a2;
+            --bg-body: #fff0f5; 
+            --white: #ffffff;
+            --text-dark: #333;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body { 
+            background-color: var(--bg-body); 
+            color: var(--text-dark); 
+            font-family: 'Poppins', sans-serif; 
+            padding-bottom: 150px; 
+            background-image: radial-gradient(#ffc1e3 15%, transparent 16%), radial-gradient(#ffc1e3 15%, transparent 16%);
+            background-size: 30px 30px;
+            background-position: 0 0, 15px 15px;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+            padding: 30px 20px 60px;
+            text-align: center;
+            color: var(--white);
+            border-bottom-left-radius: 40px;
+            border-bottom-right-radius: 40px;
+            box-shadow: 0 5px 20px rgba(214, 51, 132, 0.3);
+            position: relative;
+        }
+        
+        .hero-logo {
+            width: 100px; height: 100px;
+            background: var(--white);
+            border-radius: 50%;
+            padding: 4px;
+            border: 3px solid var(--accent);
+            margin-bottom: 10px;
+            object-fit: contain;
+        }
+        
+        .hero h1 { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; margin-bottom: 5px; }
+        .hero p { font-size: 0.9rem; opacity: 0.9; margin-bottom: 15px; }
+
+        /* --- SOCIAL MEDIA --- */
+        .social-media {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 15px;
+        }
+
+        .soc-icon {
+            width: 35px; height: 35px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(255,255,255,0.4);
+            transition: 0.3s;
+        }
+        .soc-icon svg { width: 18px; height: 18px; fill: var(--white); }
+        .soc-icon:hover { background: var(--white); transform: scale(1.1); }
+        .soc-icon:hover svg { fill: var(--primary); }
+
+        /* --- ADDRESS & MAPS --- */
+        .address-box {
+            font-size: 0.8rem; color: #ffe6f2;
+            margin: 10px auto 0; max-width: 90%;
+            border-top: 1px dashed rgba(255,255,255,0.3); padding-top: 10px;
+            line-height: 1.5;
+        }
+        
+        .maps-link {
+            display: inline-block;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            transition: 0.2s;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        .maps-link:hover { background: var(--white); color: var(--primary); }
+
+        /* --- CONTAINER & GRID --- */
+        .container { max-width: 1100px; margin: 20px auto; padding: 0 15px; }
+        
+        .category-title {
+            color: var(--primary-dark);
+            font-size: 1.4rem;
+            text-align: center;
+            margin: 25px 0;
+            font-weight: 700;
+        }
+
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(155px, 1fr));
+            gap: 20px;
+        }
+        @media (min-width: 768px) {
+            .menu-grid { grid-template-columns: repeat(4, 1fr); gap: 25px; }
+        }
+
+        /* --- CARD DESIGN --- */
+        .card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            border: 1px solid #ffebf0;
+            display: flex; flex-direction: column;
+            transition: transform 0.2s;
+            position: relative;
+        }
+
+        .card:hover { transform: translateY(-5px); border-color: var(--accent); }
+
+        .card-img-wrapper {
+            position: relative;
+            width: 100%;
+            padding-top: 100%; 
+            background-color: #ffeef5;
+            overflow: hidden;
+        }
+
+        .card-img {
+            position: absolute; top: 0; left: 0;
+            width: 100%; height: 100%;
+            object-fit: cover;
+        }
+
+        /* OVERLAY STOCK KOSONG */
+        .stock-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(0,0,0,0.7); /* Hitam transparan */
+            display: flex; align-items: center; justify-content: center;
+            z-index: 2;
+        }
+        
+        .stock-text {
+            color: #fff;
+            font-weight: 800;
+            border: 2px solid #fff;
+            padding: 5px 10px;
+            transform: rotate(-15deg);
+            font-size: 1rem;
+            letter-spacing: 1px;
+        }
+
+        .card-info { padding: 12px; flex-grow: 1; display: flex; flex-direction: column; text-align: center; }
+        
+        /* KODE PRODUK CENTERED */
+        .card-code {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: var(--primary-dark);
+            background: #fff0f5;
+            padding: 5px 15px;
+            border-radius: 20px;
+            display: inline-block;
+            margin: 0 auto 15px auto;
+            border: 1px dashed var(--primary);
+        }
+        
+        /* Controls */
+        .form-group { margin-bottom: 8px; text-align: left; }
+        .form-group label { display: block; font-size: 0.7rem; color: #666; margin-bottom: 2px; }
+        
+        .select-style, .input-style {
+            width: 100%; padding: 6px; border: 1px solid #ffc0cb; border-radius: 6px; 
+            font-size: 0.85rem; font-family: inherit;
+        }
+        
+        .price-display {
+            background-color: #f8f9fa;
+            padding: 8px;
+            border-radius: 6px;
+            margin: 10px 0;
+            font-size: 0.8rem;
+            border-left: 3px solid var(--primary);
+            text-align: left;
+        }
+        
+        .price-row { display: flex; justify-content: space-between; margin-bottom: 2px; }
+        .price-total { font-weight: 700; color: var(--primary); font-size: 0.95rem; border-top: 1px dashed #ddd; margin-top: 4px; padding-top: 4px; }
+
+        .btn-add {
+            background-color: var(--white); color: var(--primary); border: 1px solid var(--primary);
+            padding: 8px; border-radius: 6px; font-size: 0.85rem; cursor: pointer; width: 100%;
+            font-weight: 600; margin-top: auto; transition: 0.2s;
+        }
+        
+        .btn-add:hover { background-color: var(--primary); color: white; }
+        .btn-add.selected { background-color: #198754; border-color: #198754; color: white; }
+        
+        .btn-disabled {
+            background-color: #ccc; border-color: #ccc; color: #666; cursor: not-allowed;
+        }
+        .btn-disabled:hover { background-color: #ccc; color: #666; }
+
+        /* --- CHECKOUT BAR --- */
+        .checkout-container {
+            position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--white);
+            box-shadow: 0 -5px 20px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px;
+            border-top-left-radius: 20px; border-top-right-radius: 20px;
+            border-top: 4px solid var(--primary);
+            display: none; max-height: 85vh; overflow-y: auto;
+        }
+
+        .data-form { max-width: 600px; margin: 0 auto; }
+        
+        .data-input {
+            width: 100%; padding: 10px; border: 1px solid #ddd; border-radius: 8px; margin-bottom: 10px; font-family: inherit;
+        }
+
+        .btn-wa {
+            background-color: #25d366; color: white; width: 100%; padding: 12px; border-radius: 8px; 
+            font-weight: bold; border: none; cursor: pointer; font-size: 1rem; display: flex; 
+            align-items: center; justify-content: center; gap: 8px; margin-top: 10px;
+        }
+        
+        .rek-box {
+            background: #f0f8ff; padding: 10px; border-radius: 8px; font-size: 0.85rem; border: 1px dashed #007bff; margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <img src="img/logo.jpg" alt="Logo" class="hero-logo" onerror="this.src='https://via.placeholder.com/100/FFC0CB/800080?text=Rana'">
+        <h1>Rana Printing</h1>
+        <p>Jasa Cetak Undangan Murah & Cantik</p>
+
+        <div class="social-media">
+            <a href="https://www.facebook.com/profile.php?id=61573132227608" target="_blank" class="soc-icon">
+                <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.15 5.96C15.21 5.96 16.12 6.04 16.12 6.04V8.51H15.01C13.77 8.51 13.38 9.28 13.38 10.07V12.06H16.16L15.72 14.96H13.38V21.96C18.16 21.21 21.82 17.06 21.82 12.06C21.82 6.53 17.32 2.04 12 2.04Z"/></svg>
+            </a>
+            <a href="https://instagram.com/rana_printing" target="_blank" class="soc-icon">
+                <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
+            </a>
+            <a href="https://tiktok.com/@rana_printing" target="_blank" class="soc-icon">
+                <svg viewBox="0 0 24 24"><path d="M12.53,2C12.53,2 12.53,4.84 12.53,4.84C14.07,4.84 15.45,5.43 16.44,6.38C16.44,6.38 16.44,6.38 16.44,6.38C16.63,2.6 19.75,2 19.75,2C19.75,2 19.75,4.89 19.75,4.89C18.66,4.89 17.65,5.19 16.78,5.71C16.78,5.71 16.78,14.7 16.78,14.7C16.78,17.96 14.14,20.6 10.88,20.6C7.62,20.6 4.98,17.96 4.98,14.7C4.98,11.44 7.62,8.8 10.88,8.8C11.16,8.8 11.43,8.82 11.7,8.87C11.7,8.87 11.7,11.73 11.7,11.73C11.44,11.66 11.16,11.62 10.88,11.62C9.18,11.62 7.8,13 7.8,14.7C7.8,16.4 9.18,17.78 10.88,17.78C12.58,17.78 13.96,16.4 13.96,14.7C13.96,14.7 13.96,7.4 13.96,7.4C14.7,7.9 15.54,8.19 16.44,8.19C16.44,8.19 16.44,2 16.44,2C16.44,2 12.53,2 12.53,2Z"/></svg>
+            </a>
+        </div>
+
+        <div class="address-box">
+            Jl.Cakalang Jalur 2 Kel. Dawi-Dawi, Kec. Pomalaa - Sulawesi Tenggara<br>
+            <a href="https://maps.app.goo.gl/RTSXL5TKUDB1ZNWk8" target="_blank" class="maps-link">
+                📍 Lihat Lokasi di Google Maps
+            </a>
+        </div>
+    </header>
+
+    <div class="container">
+        <h3 class="category-title">Katalog Desain</h3>
+        <div class="menu-grid" id="product-list">
+            </div>
+    </div>
+
+    <div class="checkout-container" id="checkoutArea">
+        <div class="data-form">
+            <h4 style="margin-bottom:10px; color:var(--primary);">Data Pesanan</h4>
+            <div id="orderSummary" style="background:#fff0f5; padding:10px; border-radius:8px; margin-bottom:15px; font-size:0.9rem;"></div>
+            
+            <label style="font-size:0.8rem; font-weight:bold;">Isi Data Undangan (Mempelai, Tanggal, dll):</label>
+            <textarea id="redaksi" class="data-input" rows="4" placeholder="Tulis nama mempelai, nama orang tua, waktu akad & resepsi, lokasi, dll disini..."></textarea>
+
+            <div class="rek-box">
+                <b>Transfer Pembayaran:</b><br>
+                Bank BNI - 870841475<br>
+                a.n MUSDALIFAH SEPTIBERLIANA
+            </div>
+
+            <button onclick="kirimWhatsApp()" class="btn-wa">Kirim Order via WhatsApp</button>
+        </div>
+    </div>
+
+    <script>
+        /* DATA HARGA SESUAI PRICE LIST 
+           Format: [Kode, HargaTier1, HargaTier2]
+           Jika harga 0 atau '-' maka dianggap STOCK KOSONG.
+        */
+        const RAW_PRICES = [
+            ["RN01", 3000, 2700], ["RN02", 3000, 2700], ["RN03", 3000, 2500], ["RN04", 3000, 2500],
+            ["RN05", 3000, 2500], ["RN07", 3000, 2500], ["RN08", 3000, 2500],
+            ["RN09", 3000, 2500], ["RN10", 3500, 3000], ["RN11", 2500, 2000], ["RN12", 2500, 2000],
+            ["RN16", 3000, 2500],
+            ["RN17", 3000, 2500], ["RN18", 3500, 3000], ["RN19", 3500, 3000], ["RN20", 3500, 3000],
+            ["RN24", 4000, 3500],
+            ["RN25", 4000, 3500], ["RN26", 4000, 3500], 
+            ["RN32", 3000, 2700],
+            ["RN33", 3000, 2700], ["RN34", 3000, 2700], ["RN35", 4500, 4000], ["RN36", 4500, 4000],
+            ["RN37", 3000, 2700], ["RN38", 4000, 3500], ["RN40", 2500, 2000],
+            ["RN41", 2500, 2000], ["RN42", 2500, 2000], ["RN44", 3000, 2500],
+            ["RN45", 3000, 2500], ["RN46", 3500, 3000], ["RN47", 3500, 3000], ["RN48", 3500, 3000],
+            ["RN49", 3500, 3000], ["RN50", 3500, 3000], ["RN51", 3500, 3000], ["RN52", 4000, 3500],
+            ["RN55", 3500, 3000], ["RN56", 3500, 3000],
+            ["RN57", 3500, 3000], ["RN58", 3500, 3000], ["RN59", 3500, 3000], ["RN60", 3500, 3000],
+            ["RN61", 3500, 3000], ["RN62", 3500, 3000], ["RN63", 3500, 3000], ["RN64", 3500, 3000],
+            ["RN65", 3500, 3000], ["RN66", 3500, 3000], ["RN67", 3500, 3000], ["RN68", 3500, 3000],
+            ["RN69", 3500, 3000], ["RN70", 3500, 3000], ["RN71", 3500, 3000], ["RN72", 3500, 3000]
+        ];
+
+        let activeOrder = null;
+
+        // Generate Produk HTML
+        const container = document.getElementById('product-list');
+        
+        RAW_PRICES.forEach(item => {
+            const kode = item[0];
+            const harga1 = item[1]; 
+            const harga2 = item[2]; 
+            
+            // Cek apakah produk kosong (harga 0)
+            const isKosong = (harga1 === 0);
+
+            const id = kode.toLowerCase();
+            const gambar = `img/${kode}.jpg`;
+
+            const card = document.createElement('div');
+            card.className = 'card';
+            
+            // Logika Tampilan Stock Kosong
+            let overlayHtml = '';
+            let inputDisabled = '';
+            let buttonClass = 'btn-add';
+            let buttonText = 'Pilih Ini';
+            let buttonAction = `onclick="pilih('${id}', '${kode}')"`;
+
+            if (isKosong) {
+                overlayHtml = `<div class="stock-overlay"><div class="stock-text">STOCK KOSONG</div></div>`;
+                inputDisabled = 'disabled';
+                buttonClass = 'btn-add btn-disabled';
+                buttonText = 'Tidak Tersedia';
+                buttonAction = ''; // Hapus fungsi onclick
+            }
+
+            card.innerHTML = `
+                <div class="card-img-wrapper">
+                    ${overlayHtml}
+                    <img src="${gambar}" alt="${kode}" class="card-img" onerror="this.src='https://via.placeholder.com/300/FFC0CB/800080?text=${kode}'">
+                </div>
+                <div class="card-info">
+                    <div class="card-code">${kode}</div>
+                    
+                    <div class="form-group">
+                        <label>Jumlah (Min. 100)</label>
+                        <input type="number" id="qty-${id}" class="input-style" placeholder="0" min="100" oninput="hitung('${id}', ${harga1}, ${harga2})" ${inputDisabled}>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label>Varian Cetak</label>
+                        <select id="var-${id}" class="select-style" onchange="hitung('${id}', ${harga1}, ${harga2})" ${inputDisabled}>
+                            <option value="polos">Tanpa Foto</option>
+                            <option value="foto1">+1 Foto (Rp 300)</option>
+                            <option value="foto2">+2 Foto (Rp 500)</option>
+                        </select>
+                    </div>
+
+                    <div class="price-display">
+                        <div class="price-row"><span>Satuan:</span> <span id="satuan-${id}">-</span></div>
+                        <div class="price-row price-total"><span>Total:</span> <span id="total-${id}">Rp 0</span></div>
+                    </div>
+
+                    <button class="${buttonClass}" id="btn-${id}" ${buttonAction}>${buttonText}</button>
+                </div>
+            `;
+            container.appendChild(card);
+        });
+
+        // Fungsi Hitung Otomatis
+        function hitung(id, basePriceSmall, basePriceBig) {
+            // Jika kosong, jangan hitung
+            if (basePriceSmall === 0) return null;
+
+            const qtyVal = document.getElementById(`qty-${id}`).value;
+            const varian = document.getElementById(`var-${id}`).value;
+            let qty = parseInt(qtyVal);
+
+            if(!qty || qty <= 0) {
+                document.getElementById(`satuan-${id}`).innerText = "-";
+                document.getElementById(`total-${id}`).innerText = "Rp 0";
+                return null;
+            }
+
+            // Tentukan Harga Dasar (Tier 1 vs Tier 2)
+            let basePrice = (qty >= 500) ? basePriceBig : basePriceSmall;
+
+            // Tambahan Biaya Foto
+            let addOn = 0;
+            if(varian === 'foto1') addOn = 300;
+            if(varian === 'foto2') addOn = 500;
+
+            let finalPrice = basePrice + addOn;
+            let total = finalPrice * qty;
+
+            document.getElementById(`satuan-${id}`).innerText = `Rp ${finalPrice.toLocaleString('id-ID')}`;
+            document.getElementById(`total-${id}`).innerText = `Rp ${total.toLocaleString('id-ID')}`;
+
+            return { qty, varian, finalPrice, total };
+        }
+
+        // Fungsi Pilih Produk
+        function pilih(id, kode) {
+            const qtyVal = document.getElementById(`qty-${id}`).value;
+            if(!qtyVal || parseInt(qtyVal) < 100) {
+                alert("Masukkan jumlah pesanan minimal 100 pcs.");
+                document.getElementById(`qty-${id}`).focus();
+                return;
+            }
+
+            const dataHarga = RAW_PRICES.find(x => x[0] === kode);
+            const calc = hitung(id, dataHarga[1], dataHarga[2]);
+
+            document.querySelectorAll('.btn-add').forEach(b => {
+                if(!b.classList.contains('btn-disabled')) {
+                    b.innerText = "Pilih Ini";
+                    b.classList.remove('selected');
+                }
+            });
+            
+            const btn = document.getElementById(`btn-${id}`);
+            btn.innerText = "✓ Dipilih";
+            btn.classList.add('selected');
+
+            let varianLabel = (calc.varian === 'polos') ? 'Tanpa Foto' : (calc.varian === 'foto1' ? '+1 Foto' : '+2 Foto');
+
+            activeOrder = {
+                kode: kode,
+                qty: calc.qty,
+                varian: varianLabel,
+                satuan: calc.finalPrice,
+                total: calc.total
+            };
+
+            const summary = document.getElementById('orderSummary');
+            summary.innerHTML = `
+                <strong>${activeOrder.kode}</strong><br>
+                ${activeOrder.qty} pcs (${activeOrder.varian})<br>
+                Harga Satuan: Rp ${activeOrder.satuan.toLocaleString('id-ID')}<br>
+                <div style="margin-top:5px; border-top:1px dashed #ccc; padding-top:5px; font-weight:bold; color:#d63384;">
+                    Total: Rp ${activeOrder.total.toLocaleString('id-ID')}
+                </div>
+            `;
+            
+            document.getElementById('checkoutArea').style.display = 'block';
+            document.getElementById('redaksi').focus();
+        }
+
+        function kirimWhatsApp() {
+            if(!activeOrder) { alert("Silakan pilih produk dulu."); return; }
+            
+            const redaksi = document.getElementById('redaksi').value;
+            if(!redaksi.trim()) { alert("Mohon isi data undangan (nama mempelai, dll)."); return; }
+
+            const text = `Halo Rana Printing, saya mau pesan:%0A%0A` +
+                         `*KODE: ${activeOrder.kode}*%0A` +
+                         `Jumlah: ${activeOrder.qty} pcs%0A` +
+                         `Varian: ${activeOrder.varian}%0A` +
+                         `Harga Satuan: Rp ${activeOrder.satuan.toLocaleString('id-ID')}%0A` +
+                         `*TOTAL: Rp ${activeOrder.total.toLocaleString('id-ID')}*%0A%0A` +
+                         `*DATA UNDANGAN:*%0A${encodeURIComponent(redaksi)}%0A%0A` +
+                         `Mohon info proses selanjutnya. Terima kasih.`;
+            
+            window.open(`https://wa.me/6281354637634?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
