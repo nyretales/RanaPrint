@@ -300,7 +300,8 @@
         .footer-thankyou {
             margin-top: 35px;
             font-size: 0,8rem; /* Ukuran font diperbesar */
-            text-transform: uppercase;
+            text-transform: uppercase; /* Huruf Besar Semua */
+
             opacity: 1; /* Jelas, tidak transparan */
             border-top: 1px dashed rgba(255,255,255,0.4);
             padding-top: 25px;
@@ -483,6 +484,7 @@
                 buttonAction = ''; 
             }
 
+            // PERUBAHAN DISINI: Label diperjelas dan Input ditambah step="100"
             card.innerHTML = `
                 <div class="card-img-wrapper">
                     ${overlayHtml}
@@ -492,8 +494,8 @@
                     <div class="card-code">${kode}</div>
                     
                     <div class="form-group">
-                        <label>Jumlah (Min. 100)</label>
-                        <input type="number" id="qty-${id}" class="input-style" placeholder="0" min="100" oninput="hitung('${id}', ${harga1}, ${harga2})" ${inputDisabled}>
+                        <label style="color:#d63384; font-weight:bold;">Jumlah (Wajib Kelipatan 100)</label>
+                        <input type="number" id="qty-${id}" class="input-style" placeholder="100, 200, 300..." min="100" step="100" oninput="hitung('${id}', ${harga1}, ${harga2})" ${inputDisabled}>
                     </div>
                     
                     <div class="form-group">
@@ -544,8 +546,18 @@
 
         function pilih(id, kode) {
             const qtyVal = document.getElementById(`qty-${id}`).value;
-            if(!qtyVal || parseInt(qtyVal) < 100) {
-                alert("Masukkan jumlah pesanan minimal 100 pcs.");
+            const qty = parseInt(qtyVal);
+
+            // VALIDASI 1: Cek Minimal 100
+            if(!qty || qty < 100) {
+                alert("Minimal pemesanan adalah 100 pcs.");
+                document.getElementById(`qty-${id}`).focus();
+                return;
+            }
+
+            // VALIDASI 2: Cek Kelipatan 100 (Modulus)
+            if(qty % 100 !== 0) {
+                alert("Mohon maaf, pembelian kertas undangan hanya bisa kelipatan 100.\n\nContoh yang benar: 100, 200, 300, 500, dst.\nContoh salah: 150, 275, 380.");
                 document.getElementById(`qty-${id}`).focus();
                 return;
             }
