@@ -6,488 +6,239 @@
     <title>Rana Printing - Katalog Undangan Modern</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
     <style>
-        /* --- CSS VARIABLES & THEME CONFIG --- */
         :root {
-            --primary: #e6007e;
-            --primary-dark: #9d174d;
-            --primary-light: #fce7f3;
-            --magenta-gradient: linear-gradient(135deg, #e6007e 0%, #831843 100%);
-            --accent-glow: rgba(230, 0, 126, 0.35);
-            --bg-main: #fff5f8;
-            --surface: #ffffff;
-            --text-main: #1f2937;
-            --text-muted: #6b7280;
-            --border-color: #fbcfe8;
-            --radius-lg: 20px;
-            --radius-md: 12px;
-            --shadow-sm: 0 4px 6px -1px rgba(230, 0, 126, 0.05);
-            --shadow-lg: 0 20px 25px -5px rgba(230, 0, 126, 0.15), 0 8px 10px -6px rgba(0, 0, 0, 0.05);
+            --pink: #ec2387;
+            --pink-deep: #970d4e;
+            --berry: #700a3b;
+            --rose: #fff0f6;
+            --rose-soft: #fff8fb;
+            --gold: #e9bd68;
+            --ink: #3d1730;
+            --muted: #806779;
+            --line: #f4c7dc;
+            --shadow: 0 16px 40px rgba(135, 13, 71, .11);
+            --radius: 24px;
         }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        body { 
-            background-color: var(--bg-main); 
-            color: var(--text-main); 
-            font-family: 'Plus Jakarta Sans', sans-serif; 
-            background-image: 
-                radial-gradient(circle at 10% 20%, rgba(230, 0, 126, 0.05) 0%, transparent 20%),
-                radial-gradient(circle at 90% 80%, rgba(157, 23, 77, 0.05) 0%, transparent 20%);
-            background-attachment: fixed;
-            padding-bottom: 150px;
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--ink);
+            background:
+                radial-gradient(circle at 0% 25%, rgba(236,35,135,.07), transparent 24rem),
+                radial-gradient(circle at 100% 70%, rgba(233,189,104,.10), transparent 22rem),
+                var(--rose-soft);
+            padding-bottom: 190px;
         }
-
-        /* --- HERO SECTION --- */
+        a { color: inherit; }
         .hero {
-            background: var(--magenta-gradient);
-            padding: 50px 20px 70px;
-            text-align: center;
-            color: #ffffff;
-            border-bottom-left-radius: 40px;
-            border-bottom-right-radius: 40px;
-            box-shadow: 0 10px 30px rgba(157, 23, 77, 0.3);
-            position: relative;
-            overflow: hidden;
+            position: relative; isolation: isolate; overflow: hidden;
+            color: #fff; text-align: left;
+            padding: 30px 22px 66px;
+            border-radius: 0 0 42px 42px;
+            background:
+                radial-gradient(ellipse at 92% 12%, rgba(255,112,184,.5), transparent 32%),
+                radial-gradient(ellipse at 4% 100%, rgba(255,255,255,.12), transparent 38%),
+                linear-gradient(128deg, #760735 0%, #b10d59 48%, #f02b91 100%);
+            box-shadow: 0 18px 42px rgba(125, 8, 60, .2);
         }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -50%; left: -50%;
-            width: 200%; height: 200%;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 60%);
-            pointer-events: none;
+        .hero::before, .hero::after {
+            content: ''; position: absolute; z-index: -1; pointer-events: none;
+            border: 1px solid rgba(255,255,255,.18); border-radius: 50%;
+            transform: rotate(-18deg);
         }
-        
+        .hero::before { width: 480px; height: 220px; right: -130px; top: 110px; box-shadow: 0 0 0 15px rgba(255,255,255,.025), 0 0 0 30px rgba(255,255,255,.025); }
+        .hero::after { width: 360px; height: 150px; left: -180px; bottom: -65px; border-color: rgba(233,189,104,.65); }
+        .hero-inner { max-width: 1160px; margin: auto; position: relative; }
+        .hero-top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom: 30px; }
+        .brand-lockup { display:flex; align-items:center; gap:13px; }
         .hero-logo {
-            width: 110px; height: 110px;
-            background: #ffffff;
-            border-radius: 50%;
-            padding: 5px;
-            border: 4px solid rgba(255, 255, 255, 0.8);
-            margin: 0 auto 15px;
-            object-fit: contain;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            transition: transform 0.3s ease;
+            width: 62px; height: 62px; object-fit: contain; flex-shrink:0;
+            background:#fff; border:2px solid rgba(255,255,255,.8); border-radius:18px;
+            padding:4px; box-shadow:0 8px 24px rgba(0,0,0,.15);
         }
-
-        .hero-logo:hover {
-            transform: scale(1.05) rotate(3deg);
+        .brand-name { font-size:1rem; letter-spacing:.24em; font-weight:800; line-height:1.35; }
+        .brand-name span { display:block; font-size:.66rem; letter-spacing:.34em; font-weight:600; opacity:.84; }
+        .hero-tag { font-size:.78rem; font-weight:700; text-align:right; line-height:1.6; color:#ffe8f2; }
+        .hero-tag::after { content:''; display:block; width:44px; height:3px; border-radius:5px; background:var(--gold); margin:8px 0 0 auto; }
+        .hero-copy { max-width:780px; }
+        .eyebrow { display:inline-flex; align-items:center; gap:8px; color:#ffe3ef; text-transform:uppercase; letter-spacing:.2em; font-size:.72rem; font-weight:800; margin-bottom:14px; }
+        .eyebrow::before { content:''; width:28px; height:2px; background:var(--gold); }
+        .hero h1 {
+            font-family:'Playfair Display', serif; font-size:clamp(2.65rem, 7vw, 5.25rem);
+            line-height:.99; letter-spacing:-.045em; font-weight:800; max-width:850px;
+            margin-bottom:20px; text-wrap:balance; text-shadow:0 5px 18px rgba(57,0,28,.15);
         }
-        
-        .hero h1 { 
-            font-family: 'Playfair Display', serif; 
-            font-size: 2.2rem; 
-            font-weight: 800; 
-            letter-spacing: -0.5px;
-            margin-bottom: 8px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        .hero h1 em { color:#ffd9e9; font-style:italic; }
+        .hero p { max-width:610px; font-size:clamp(.96rem, 2vw, 1.12rem); line-height:1.8; color:rgba(255,255,255,.88); }
+        .hero-actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:25px; }
+        .hero-cta, .hero-wa {
+            display:inline-flex; align-items:center; justify-content:center; gap:9px; text-decoration:none;
+            padding:13px 19px; border-radius:999px; font-size:.88rem; font-weight:800; transition:.2s;
         }
-        .hero p { 
-            font-size: 0.95rem; 
-            opacity: 0.9; 
-            margin-bottom: 20px;
-            font-weight: 300;
-            letter-spacing: 0.5px;
-        }
-
-        /* --- SOCIAL MEDIA --- */
-        .social-media {
-            display: flex; justify-content: center; gap: 12px; margin-bottom: 20px;
-        }
-
-        .soc-icon {
-            width: 40px; height: 40px;
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(10px);
-            border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            border: 1px solid rgba(255,255,255,0.3);
-            transition: all 0.3s ease;
-        }
-        .soc-icon svg { width: 20px; height: 20px; fill: #ffffff; transition: 0.3s; }
-        .soc-icon:hover { 
-            background: #ffffff; 
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        .soc-icon:hover svg { fill: var(--primary); }
-
-        /* --- ADDRESS & MAPS --- */
-        .address-box {
-            font-size: 0.85rem; color: rgba(255,255,255,0.9);
-            margin: 15px auto 0; max-width: 500px;
-            border-top: 1px solid rgba(255,255,255,0.2); 
-            padding-top: 15px;
-            line-height: 1.6;
-        }
-        
-        .maps-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            margin-top: 10px;
-            background: rgba(255, 255, 255, 0.2);
-            color: #fff;
-            text-decoration: none;
-            padding: 8px 18px;
-            border-radius: 30px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255,255,255,0.4);
-        }
-        .maps-link:hover { 
-            background: #ffffff; 
-            color: var(--primary-dark); 
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-        }
-
-        /* --- CONTAINER & TITLES --- */
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; }
-        
-        .category-header {
-            text-align: center;
-            margin: 40px 0 25px;
-        }
-
-        .category-title {
-            color: var(--primary-dark);
-            font-size: 1.6rem;
-            font-weight: 800;
-            display: inline-block;
-            position: relative;
-        }
-        
-        .category-title::after {
-            content: ''; 
-            display: block; 
-            width: 40%; 
-            height: 4px; 
-            background: var(--primary);
-            margin: 8px auto 0; 
-            border-radius: 10px;
-        }
-
-        .menu-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-            gap: 25px;
-        }
-
-        /* --- MODERN CARD DESIGN --- */
+        .hero-cta { background:#fff; color:var(--pink-deep); box-shadow:0 8px 24px rgba(50,0,20,.15); }
+        .hero-wa { border:1px solid rgba(255,255,255,.42); color:#fff; background:rgba(255,255,255,.11); backdrop-filter:blur(8px); }
+        .hero-cta:hover, .hero-wa:hover { transform:translateY(-3px); }
+        .hero-cta span { color:var(--pink); font-size:1.1rem; }
+        .social-media { display:flex; align-items:center; gap:9px; }
+        .soc-icon { display:grid; place-items:center; width:34px; height:34px; border:1px solid rgba(255,255,255,.32); border-radius:50%; color:#fff; background:rgba(255,255,255,.12); transition:.2s; }
+        .soc-icon svg { width:16px; height:16px; fill:currentColor; }
+        .soc-icon:hover { color:var(--pink-deep); background:#fff; transform:translateY(-2px); }
+        .hero-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:30px; padding-top:18px; border-top:1px solid rgba(255,255,255,.2); color:#ffe7f1; font-size:.78rem; line-height:1.7; }
+        .hero-bottom a { text-decoration:none; }
+        .hero-bottom a:hover { text-decoration:underline; }
+        .container { max-width:1200px; margin:0 auto; padding:0 22px; }
+        .intro-strip { display:flex; align-items:center; justify-content:space-between; gap:18px; margin:32px 0 12px; }
+        .section-kicker { color:var(--pink); font-size:.7rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; margin-bottom:7px; }
+        .category-title { font-family:'Playfair Display',serif; color:var(--berry); font-size:clamp(1.8rem,4vw,2.5rem); line-height:1.15; }
+        .section-note { color:var(--muted); font-size:.88rem; line-height:1.7; max-width:390px; }
+        .catalog-tools { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:22px 0; }
+        .catalog-count { color:var(--muted); font-size:.84rem; }
+        .catalog-count strong { color:var(--pink-deep); }
+        .catalog-tip { background:#fff; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:9px 13px; font-size:.77rem; }
+        .menu-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
         .card {
-            background: var(--surface);
-            border-radius: var(--radius-lg);
-            overflow: hidden;
-            box-shadow: var(--shadow-sm);
-            border: 1px solid var(--border-color);
-            display: flex; 
-            flex-direction: column;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
+            background:#fff; border:1px solid rgba(244,199,220,.9); border-radius:22px; overflow:hidden;
+            display:flex; flex-direction:column; min-width:0; box-shadow:0 5px 20px rgba(135,13,71,.045);
+            transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
         }
-
-        .card:hover { 
-            transform: translateY(-8px); 
-            box-shadow: var(--shadow-lg);
-            border-color: var(--primary);
+        .card:hover { transform:translateY(-5px); box-shadow:var(--shadow); border-color:#ee8bbb; }
+        .card-img-wrapper { position:relative; width:100%; padding-top:100%; overflow:hidden; background:linear-gradient(135deg,#fff0f6,#f9dce9); }
+        .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+        .card:hover .card-img { transform:scale(1.045); }
+        .card-info { padding:17px; display:flex; flex-direction:column; flex-grow:1; }
+        .card-code { align-self:flex-start; font-size:.82rem; font-weight:800; letter-spacing:.09em; color:var(--pink-deep); background:#fff0f6; border:1px solid #f8d2e3; padding:7px 12px; border-radius:999px; margin-bottom:16px; }
+        .form-group { margin-bottom:12px; }
+        .form-group label { display:block; font-size:.68rem; font-weight:800; color:var(--muted); margin-bottom:7px; text-transform:uppercase; letter-spacing:.07em; }
+        .select-style, .input-style, .data-input {
+            width:100%; padding:11px 12px; border:1.5px solid #f0d6e2; border-radius:12px;
+            font-family:inherit; font-size:.86rem; color:var(--ink); background:#fff; outline:none; transition:.2s;
         }
-
-        .card-img-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 100%; 
-            background-color: var(--primary-light);
-            overflow: hidden;
-        }
-
-        .card-img {
-            position: absolute; top: 0; left: 0;
-            width: 100%; height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .card:hover .card-img {
-            transform: scale(1.06);
-        }
-
-        /* OVERLAY STOCK KOSONG */
-        .stock-overlay {
-            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
-            background: rgba(15, 23, 42, 0.75);
-            backdrop-filter: blur(3px);
-            display: flex; align-items: center; justify-content: center;
-            z-index: 2;
-        }
-        
-        .stock-text {
-            color: #ffffff;
-            font-weight: 800;
-            border: 2px solid #ffffff;
-            padding: 6px 14px;
-            border-radius: 8px;
-            transform: rotate(-10deg);
-            font-size: 0.9rem;
-            letter-spacing: 1.5px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .card-info { 
-            padding: 16px; 
-            flex-grow: 1; 
-            display: flex; 
-            flex-direction: column; 
-        }
-        
-        .card-code {
-            font-size: 1.1rem;
-            font-weight: 800;
-            color: var(--primary-dark);
-            background: var(--primary-light);
-            padding: 4px 12px;
-            border-radius: 20px;
-            display: inline-block;
-            align-self: center;
-            margin-bottom: 12px;
-            letter-spacing: 0.5px;
-        }
-        
-        /* Controls */
-        .form-group { margin-bottom: 10px; }
-        .form-group label { 
-            display: block; 
-            font-size: 0.72rem; 
-            font-weight: 700;
-            color: var(--text-muted); 
-            margin-bottom: 4px; 
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .select-style, .input-style {
-            width: 100%; 
-            padding: 8px 12px; 
-            border: 1.5px solid var(--border-color); 
-            border-radius: var(--radius-md); 
-            font-size: 0.85rem; 
-            font-family: inherit;
-            color: var(--text-main);
-            background-color: #fff;
-            transition: all 0.2s;
-            outline: none;
-        }
-
-        .select-style:focus, .input-style:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-        }
-        
-        .price-display {
-            background-color: #fff0f6;
-            padding: 10px 12px;
-            border-radius: var(--radius-md);
-            margin: 12px 0;
-            font-size: 0.8rem;
-            border: 1px dashed var(--border-color);
-        }
-        
-        .price-row { display: flex; justify-content: space-between; margin-bottom: 4px; color: var(--text-muted); }
-        .price-total { 
-            font-weight: 800; 
-            color: var(--primary-dark); 
-            font-size: 1rem; 
-            border-top: 1px dashed var(--border-color); 
-            margin-top: 6px; 
-            padding-top: 6px; 
-        }
-
-        .btn-add {
-            background: var(--surface); 
-            color: var(--primary); 
-            border: 2px solid var(--primary);
-            padding: 10px; 
-            border-radius: var(--radius-md); 
-            font-size: 0.85rem; 
-            cursor: pointer; 
-            width: 100%;
-            font-weight: 700; 
-            margin-top: auto; 
-            transition: all 0.2s ease;
-        }
-        
-        .btn-add:hover { 
-            background: var(--primary); 
-            color: #ffffff; 
-            box-shadow: 0 4px 12px var(--accent-glow);
-        }
-        .btn-add.selected { 
-            background: #10b981; 
-            border-color: #10b981; 
-            color: #ffffff; 
-        }
-        
-        .btn-disabled {
-            background-color: #f3f4f6; 
-            border-color: #e5e7eb; 
-            color: #9ca3af; 
-            cursor: not-allowed;
-        }
-        .btn-disabled:hover { background-color: #f3f4f6; color: #9ca3af; box-shadow: none; }
-
-        /* --- CHECKOUT BAR (FLOATING MODERN WITH BONUS) --- */
+        .select-style:focus, .input-style:focus, .data-input:focus { border-color:var(--pink); box-shadow:0 0 0 4px rgba(236,35,135,.1); }
+        .price-display { background:linear-gradient(135deg,#fff1f7,#fffafd); border:1px solid #f7d9e7; border-radius:14px; padding:12px; margin:7px 0 14px; font-size:.8rem; }
+        .price-row { display:flex; justify-content:space-between; gap:8px; margin-bottom:5px; color:var(--muted); }
+        .price-total { border-top:1px dashed #eabbd1; padding-top:9px; margin-top:8px; margin-bottom:0; font-size:.96rem; font-weight:800; color:var(--pink-deep); }
+        .btn-add { margin-top:auto; width:100%; padding:12px; border-radius:12px; border:1.5px solid var(--pink); color:var(--pink-deep); background:#fff; font-family:inherit; font-size:.84rem; font-weight:800; cursor:pointer; transition:.2s; }
+        .btn-add:hover { background:var(--pink); color:#fff; box-shadow:0 7px 18px rgba(236,35,135,.22); }
+        .btn-add.selected { background:#14875b; border-color:#14875b; color:#fff; }
+        .btn-disabled, .btn-disabled:hover { background:#f4f0f2; border-color:#e5dce1; color:#a99ba3; cursor:not-allowed; box-shadow:none; }
+        .stock-overlay { position:absolute; inset:0; background:rgba(48,14,33,.66); backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; z-index:2; }
+        .stock-text { color:#fff; font-weight:800; border:2px solid #fff; padding:8px 14px; border-radius:8px; transform:rotate(-8deg); font-size:.82rem; letter-spacing:.14em; }
+        .bonus-band { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:30px 0 38px; }
+        .bonus-item { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); padding:15px; border-radius:17px; box-shadow:0 5px 18px rgba(135,13,71,.04); }
+        .bonus-icon { display:grid; place-items:center; flex-shrink:0; width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#ff5ca7,#b50c5d); color:#fff; font-size:1.05rem; }
+        .bonus-item strong { display:block; font-size:.82rem; color:var(--berry); line-height:1.5; }
+        .bonus-item small { display:block; font-size:.72rem; color:var(--muted); margin-top:2px; }
         .checkout-container {
-            position: fixed; bottom: 20px; left: 50%; 
-            transform: translateX(-50%);
-            width: calc(100% - 30px);
-            max-width: 650px;
-            background: rgba(255, 255, 255, 0.98);
-            backdrop-filter: blur(12px);
-            box-shadow: 0 20px 40px rgba(157, 23, 77, 0.3);
-            z-index: 1000;
-            padding: 20px;
-            border-radius: var(--radius-lg);
-            border: 2px solid var(--primary);
-            display: none; 
-            max-height: 90vh; 
-            overflow-y: auto;
-            animation: slideUp 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position:fixed; z-index:1000; bottom:16px; left:50%; transform:translateX(-50%);
+            width:calc(100% - 24px); max-width:670px; max-height:88vh; overflow-y:auto;
+            display:none; padding:20px; border:1px solid #f1b4d0; border-radius:24px;
+            background:rgba(255,255,255,.97); backdrop-filter:blur(16px);
+            box-shadow:0 22px 65px rgba(91,5,45,.3); animation:slideUp .28s ease-out;
         }
-
-        @keyframes slideUp {
-            from { transform: translate(-50%, 100%); opacity: 0; }
-            to { transform: translate(-50%, 0); opacity: 1; }
+        @keyframes slideUp { from { transform:translate(-50%,20px); opacity:0; } to { transform:translate(-50%,0); opacity:1; } }
+        .data-form h4 { font-family:'Playfair Display',serif; color:var(--berry); font-size:1.45rem; margin-bottom:13px; }
+        .mini-bonus-box { position:sticky; top:-1px; z-index:8; background:linear-gradient(120deg,#fff0f6 0%,#fffafc 100%); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:13px; box-shadow:0 8px 18px rgba(135,13,71,.10); }
+        .mini-bonus-title { display:flex; align-items:center; gap:6px; }
+        .mini-bonus-item { white-space:nowrap; }
+        .mini-bonus-title { font-size:.72rem; text-transform:uppercase; font-weight:800; color:var(--pink-deep); margin-bottom:8px; letter-spacing:.08em; }
+        .mini-bonus-list { display:flex; flex-wrap:wrap; gap:6px; }
+        .mini-bonus-item { background:#fff; padding:6px 9px; border-radius:999px; font-size:.7rem; font-weight:700; color:var(--ink); border:1px solid var(--line); }
+        .data-input { display:block; margin:7px 0 10px; resize:vertical; }
+        .rek-box { background:#fff9ed; padding:12px; border-radius:12px; font-size:.8rem; border:1px dashed #e4bd70; margin-top:10px; color:#805a1c; line-height:1.65; }
+        .btn-wa { background:linear-gradient(135deg,#21c967,#0c9d54); color:#fff; width:100%; padding:14px; border-radius:13px; font-family:inherit; font-weight:800; border:none; cursor:pointer; font-size:.95rem; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; box-shadow:0 7px 18px rgba(37,211,102,.22); transition:.2s; }
+        .btn-wa:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(37,211,102,.3); }
+        .footer-note { text-align:center; color:var(--muted); font-size:.78rem; padding:4px 0 32px; line-height:1.8; }
+        .footer-note a { color:var(--pink-deep); font-weight:800; text-decoration:none; }
+        @media (min-width:800px) { .hero { padding:34px 30px 52px; } .hero-copy { padding:12px 0 8px; } }
+        @media (min-width:651px) and (max-width:999px) { .menu-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+        @media (max-width:650px) {
+            body { padding-bottom:210px; }
+            .hero { padding:22px 18px 38px; border-radius:0 0 30px 30px; }
+            .hero-top { margin-bottom:27px; }
+            .hero-logo { width:50px; height:50px; border-radius:14px; }
+            .brand-name { font-size:.88rem; }
+            .brand-name span { font-size:.57rem; }
+            .hero-tag { font-size:.68rem; }
+            .hero h1 { font-size:clamp(2.55rem,12vw,4rem); }
+            .hero p { font-size:.92rem; }
+            .hero-actions { align-items:stretch; }
+            .hero-cta, .hero-wa { flex:1 1 100%; }
+            .hero-bottom { flex-direction:column; gap:6px; }
+            .container { padding:0 15px; }
+            .intro-strip { display:block; margin-top:28px; }
+            .section-note { margin-top:9px; }
+            .menu-grid { grid-template-columns:1fr; gap:18px; }
+            .card { border-radius:20px; }
+            .card-info { padding:18px; }
+            .card-code { font-size:.82rem; margin-bottom:14px; }
+            .form-group label { font-size:.7rem; letter-spacing:.05em; }
+            .select-style, .input-style { padding:12px; font-size:.88rem; }
+            .price-display { padding:12px; font-size:.82rem; }
+            .price-total { font-size:.96rem; }
+            .btn-add { font-size:.86rem; padding:13px; }
+            .bonus-band { grid-template-columns:1fr; gap:9px; margin:24px 0 28px; }
+            .bonus-item { padding:11px 13px; }
+            .checkout-container { padding:12px; bottom:8px; width:calc(100% - 16px); max-height:82vh; border-radius:19px; }
+            .mini-bonus-box { top:-1px; padding:10px; margin-bottom:10px; border-radius:12px; }
+            .mini-bonus-title { font-size:.69rem; margin-bottom:7px; }
+            .mini-bonus-list { gap:5px; }
+            .mini-bonus-item { font-size:.65rem; padding:5px 7px; }
         }
-
-        .data-form h4 {
-            color: var(--primary-dark);
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            font-weight: 800;
-        }
-
-        /* BONUS MINI DALAM CHECKOUT */
-        .mini-bonus-box {
-            background: linear-gradient(135deg, var(--primary-light), #fff);
-            border: 1px solid var(--border-color);
-            border-radius: var(--radius-md);
-            padding: 10px 12px;
-            margin-bottom: 12px;
-        }
-        .mini-bonus-title {
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            font-weight: 800;
-            color: var(--primary-dark);
-            margin-bottom: 6px;
-            letter-spacing: 0.5px;
-        }
-        .mini-bonus-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-        }
-        .mini-bonus-item {
-            background: #ffffff;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: var(--text-main);
-            border: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .data-input {
-            width: 100%; padding: 10px 14px; 
-            border: 1.5px solid var(--border-color); 
-            border-radius: var(--radius-md); 
-            margin-bottom: 10px; 
-            font-family: inherit;
-            font-size: 0.88rem;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        .data-input:focus {
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px var(--accent-glow);
-        }
-
-        .btn-wa {
-            background-color: #25d366; 
-            color: white; 
-            width: 100%; 
-            padding: 12px; 
-            border-radius: var(--radius-md); 
-            font-weight: 800; 
-            border: none; 
-            cursor: pointer; 
-            font-size: 1rem; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-            gap: 8px; 
-            margin-top: 10px;
-            box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
-            transition: all 0.2s;
-        }
-
-        .btn-wa:hover {
-            background-color: #1eb956;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.4);
-        }
-        
-        .rek-box {
-            background: #f0f9ff; 
-            padding: 10px 12px; 
-            border-radius: var(--radius-md); 
-            font-size: 0.82rem; 
-            border: 1px dashed #0284c7; 
-            margin-top: 10px;
-            color: #0369a1;
-            line-height: 1.5;
-        }
+        @media (max-width:360px) { .hero-tag { max-width:105px; } }
     </style>
 </head>
 <body>
 
     <header class="hero">
-        <img src="img/logo.jpg" alt="Logo" class="hero-logo" onerror="this.src='https://via.placeholder.com/110/fce7f3/e6007e?text=Rana'">
-        <h1>Rana Printing</h1>
-        <p>Jasa Cetak Undangan Murah & Cantik</p>
-
-        <div class="social-media">
-            <a href="https://www.facebook.com/profile.php?id=61573132227608" target="_blank" class="soc-icon" aria-label="Facebook">
-                <svg viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.15 5.96C15.21 5.96 16.12 6.04 16.12 6.04V8.51H15.01C13.77 8.51 13.38 9.28 13.38 10.07V12.06H16.16L15.72 14.96H13.38V21.96C18.16 21.21 21.82 17.06 21.82 12.06C21.82 6.53 17.32 2.04 12 2.04Z"/></svg>
-            </a>
-            <a href="https://instagram.com/rana_printing" target="_blank" class="soc-icon" aria-label="Instagram">
-                <svg viewBox="0 0 24 24"><path d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9Z"/></svg>
-            </a>
-            <a href="https://tiktok.com/@rana_printing" target="_blank" class="soc-icon" aria-label="TikTok">
-                <svg viewBox="0 0 24 24"><path d="M12.53,2C12.53,2 12.53,4.84 12.53,4.84C14.07,4.84 15.45,5.43 16.44,6.38C16.44,6.38 16.44,6.38 16.44,6.38C16.63,2.6 19.75,2 19.75,2C19.75,2 19.75,4.89 19.75,4.89C18.66,4.89 17.65,5.19 16.78,5.71C16.78,5.71 16.78,14.7 16.78,14.7C16.78,17.96 14.14,20.6 10.88,20.6C7.62,20.6 4.98,17.96 4.98,14.7C4.98,11.44 7.62,8.8 10.88,8.8C11.16,8.8 11.43,8.82 11.7,8.87C11.7,8.87 11.7,11.73 11.7,11.73C11.44,11.66 11.16,11.62 10.88,11.62C9.18,11.62 7.8,13 7.8,14.7C7.8,16.4 9.18,17.78 10.88,17.78C12.58,17.78 13.96,16.4 13.96,14.7C13.96,14.7 13.96,7.4 13.96,7.4C14.7,7.9 15.54,8.19 16.44,8.19C16.44,8.19 16.44,2 16.44,2C16.44,2 12.53,2 12.53,2Z"/></svg>
-            </a>
-        </div>
-
-        <div class="address-box">
-            Jl.Cakalang Jalur 2 Kel. Dawi-Dawi, Kec. Pomalaa - Sulawesi Tenggara<br>
-            <a href="https://maps.app.goo.gl/RTSXL5TKUDB1ZNWk8" target="_blank" class="maps-link">
-                📍 Lihat Lokasi di Google Maps
-            </a>
+        <div class="hero-inner">
+            <div class="hero-top">
+                <div class="brand-lockup">
+                    <img src="img/logo.jpg" alt="Logo Rana Printing" class="hero-logo" onerror="this.style.display='none'">
+                    <div class="brand-name">RANA <span>PRINTING</span></div>
+                </div>
+                <div class="hero-tag">Cetak Undangan<br>Elegan & Berkesan</div>
+            </div>
+            <div class="hero-copy">
+                <div class="eyebrow">Spesial untuk hari istimewamu</div>
+                <h1>Undangan Cantik,<br><em>Kenangan Abadi.</em></h1>
+                <p>Pilih desain undangan favoritmu, atur jumlah cetak, lalu pesan dengan mudah melalui WhatsApp. Kami siap membantu membuat momen spesialmu semakin berkesan.</p>
+                <div class="hero-actions">
+                    <a class="hero-cta" href="#katalog">Jelajahi Katalog <span>↓</span></a>
+                    <a class="hero-wa" href="https://wa.me/6281354637634" target="_blank" rel="noopener">☏ WhatsApp · 0813-5463-7634</a>
+                </div>
+            </div>
+            <div class="hero-bottom">
+                <div>✦ Undangan pernikahan, aqiqah, syukuran & acara lainnya</div>
+                <div class="social-media">
+                    <a href="https://www.facebook.com/profile.php?id=61573132227608" target="_blank" rel="noopener" class="soc-icon" aria-label="Facebook"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.15 5.96C15.21 5.96 16.12 6.04 16.12 6.04V8.51H15.01C13.77 8.51 13.38 9.28 13.38 10.07V12.06H16.16L15.72 14.96H13.38V21.96C18.16 21.21 21.82 17.06 21.82 12.06C21.82 6.53 17.32 2.04 12 2.04Z"/></svg></a>
+                    <a href="https://instagram.com/rana_printing" target="_blank" rel="noopener" class="soc-icon" aria-label="Instagram"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M7.8,2H16.2C19.4,2 22,4.6 22,7.8V16.2A5.8,5.8 0 0,1 16.2,22H7.8C4.6,22 2,19.4 2,16.2V7.8A5.8,5.8 0 0,1 7.8,2M7.6,4A3.6,3.6 0 0,0 4,7.6V16.4C4,18.39 5.61,20 7.6,20H16.4A3.6,3.6 0 0,0 20,16.4V7.6C20,5.61 18.39,4 16.4,4H7.6M17.25,5.5A1.25,1.25 0 0,1 18.5,6.75A1.25,1.25 0 0,1 17.25,8A1.25,1.25 0 0,1 16,6.75A1.25,1.25 0 0,1 17.25,5.5M12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12Z"/></svg></a>
+                    <a href="https://tiktok.com/@rana_printing" target="_blank" rel="noopener" class="soc-icon" aria-label="TikTok"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M12.53,2V14.7a3.82,3.82 0 1 1-3.82-3.82c.27 0 .54.03.8.09V7.9a7.2 7.2 0 1 0 6.5 7.16V9.2c1.13.8 2.49 1.27 4 1.27V6.9c-3.2-.18-4.85-2.4-4.95-4.9z"/></svg></a>
+                </div>
+                <div>📍 Jl. Cakalang Jalur 2, Dawi-Dawi, Pomalaa, Sulawesi Tenggara<br><a href="https://maps.app.goo.gl/RTSXL5TKUDB1ZNWk8" target="_blank" rel="noopener">Lihat lokasi di Google Maps ↗</a></div>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <div class="category-header">
-            <h2 class="category-title">Katalog Desain</h2>
+    <main class="container" id="katalog">
+        <section class="intro-strip">
+            <div>
+                <div class="section-kicker">Temukan desain favoritmu</div>
+                <h2 class="category-title">Katalog Undangan</h2>
+            </div>
+            <p class="section-note">Pilih kode desain, tentukan jumlah cetak dan varian foto. Harga akan dihitung otomatis sebelum pesanan dikirim.</p>
+        </section>
+        <div class="catalog-tools">
+            <p class="catalog-count">Semua desain <strong>undangan cetak</strong> dalam satu tempat.</p>
+            <span class="catalog-tip">✦ Minimal pemesanan 100 pcs · kelipatan 100</span>
         </div>
         <div class="menu-grid" id="product-list"></div>
+        <section class="bonus-band" aria-label="Bonus spesial undangan">
+            <div class="bonus-item"><span class="bonus-icon">🎁</span><div><strong>Free plastik pembungkus</strong><small>Bonus untuk pesanan undangan</small></div></div>
+            <div class="bonus-item"><span class="bonus-icon">✧</span><div><strong>Free stiker label nama</strong><small>Sentuhan personal untuk undanganmu</small></div></div>
+            <div class="bonus-item"><span class="bonus-icon">✍</span><div><strong>Free ketik nama tamu</strong><small>Lebih praktis, siap dibagikan</small></div></div>
+        </section>
+        <div class="footer-note">Butuh bantuan memilih desain? Hubungi kami di <a href="https://wa.me/6281354637634" target="_blank" rel="noopener">WhatsApp 0813-5463-7634</a>.<br>Rana Printing · Undangan cantik untuk momen istimewa.</div>
     </main>
 
     <div class="checkout-container" id="checkoutArea">
