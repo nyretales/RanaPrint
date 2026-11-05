@@ -186,6 +186,231 @@
             .mini-bonus-item { font-size:.65rem; padding:5px 7px; }
         }
         @media (max-width:360px) { .hero-tag { max-width:105px; } }
+    
+        /* ===== RANA PRINTING · PINK NEUMORPHISM ===== */
+        :root {
+            --pink: #d94f91;
+            --pink-deep: #a8326d;
+            --berry: #743653;
+            --rose: #f7e5ee;
+            --rose-soft: #f7e9ef;
+            --gold: #d6ad70;
+            --ink: #59394a;
+            --muted: #967789;
+            --line: #ead1dd;
+            --shadow: 8px 8px 18px #d9c4ce, -8px -8px 18px #ffffff;
+            --radius: 24px;
+            --neo-bg: #f2e2e9;
+            --neo-light: #fff7fb;
+            --neo-dark: #d7c2cc;
+        }
+
+        body {
+            color: var(--ink);
+            background: var(--neo-bg);
+            background-image:
+                radial-gradient(circle at 8% 8%, rgba(255,255,255,.72), transparent 25rem),
+                radial-gradient(circle at 95% 60%, rgba(217,79,145,.08), transparent 28rem);
+        }
+
+        .hero {
+            color: var(--berry);
+            background: var(--neo-bg);
+            border-radius: 0 0 38px 38px;
+            box-shadow: 10px 10px 24px #d6c1cb, -10px -10px 24px #fff7fb;
+            border: 1px solid rgba(255,255,255,.65);
+        }
+        .hero::before, .hero::after {
+            border-color: rgba(190,105,148,.18);
+            box-shadow: 0 0 0 15px rgba(190,105,148,.025), 0 0 0 30px rgba(190,105,148,.02);
+        }
+        .hero::after { border-color: rgba(214,173,112,.48); }
+        .hero-logo {
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 18px;
+            box-shadow: 5px 5px 11px #d6c1cb, -5px -5px 11px #fff7fb;
+        }
+        .brand-name { color: var(--berry); }
+        .brand-name span { color: var(--muted); }
+        .hero-tag, .hero p, .hero-bottom { color: #866477; }
+        .hero-tag::after, .eyebrow::before { background: var(--gold); }
+        .eyebrow { color: var(--pink-deep); }
+        .hero h1 { color: var(--berry); text-shadow: none; }
+        .hero h1 em { color: var(--pink); }
+        .hero-cta, .hero-wa {
+            border: 0;
+            border-radius: 15px;
+            box-shadow: 6px 6px 12px #d6c1cb, -6px -6px 12px #fff7fb;
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+        .hero-cta { color: var(--pink-deep); background: var(--neo-bg); }
+        .hero-wa { color: var(--pink-deep); background: var(--neo-bg); }
+        .hero-cta:hover, .hero-wa:hover { transform: translateY(-2px); }
+        .hero-cta:active, .hero-wa:active {
+            transform: translateY(1px);
+            box-shadow: inset 5px 5px 10px #d6c1cb, inset -5px -5px 10px #fff7fb;
+        }
+        .soc-icon {
+            color: var(--pink-deep);
+            background: var(--neo-bg);
+            border: 0;
+            box-shadow: 4px 4px 8px #d6c1cb, -4px -4px 8px #fff7fb;
+        }
+        .soc-icon:hover { color: #fff; background: var(--pink); }
+        .hero-bottom { border-top-color: #dfcbd5; }
+        .hero-bottom a { color: var(--pink-deep); }
+
+        .section-kicker { color: var(--pink); }
+        .category-title { color: var(--berry); }
+        .catalog-count strong { color: var(--pink-deep); }
+        .catalog-tip {
+            background: var(--neo-bg);
+            border: 0;
+            color: var(--muted);
+            box-shadow: 5px 5px 10px #d9c4ce, -5px -5px 10px #fff7fb;
+        }
+
+        .card {
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 23px;
+            box-shadow: 8px 8px 17px #d8c3cd, -8px -8px 17px #fff7fb;
+            transition: transform .22s ease, box-shadow .22s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: transparent;
+            box-shadow: 11px 11px 21px #d3bec8, -9px -9px 20px #fff9fc;
+        }
+        .card-img-wrapper {
+            margin: 11px 11px 0;
+            width: calc(100% - 22px);
+            padding-top: calc(100% - 22px);
+            border-radius: 17px;
+            background: #eedce5;
+            box-shadow: inset 4px 4px 8px #d4c0ca, inset -4px -4px 8px #fff7fb;
+        }
+        .card-img { border-radius: 17px; }
+        .card-info { padding: 17px 19px 19px; }
+        .card-code {
+            color: var(--pink-deep);
+            background: var(--neo-bg);
+            border: 0;
+            box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb;
+        }
+
+        .form-group label { color: var(--muted); }
+        .select-style, .input-style, .data-input {
+            color: var(--ink);
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 13px;
+            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
+        }
+        .select-style:focus, .input-style:focus, .data-input:focus {
+            border: 0;
+            box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb, 0 0 0 2px rgba(217,79,145,.25);
+        }
+        .price-display {
+            color: var(--muted);
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 15px;
+            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
+        }
+        .price-row { color: var(--muted); }
+        .price-total {
+            color: var(--pink-deep);
+            border-top: 1px dashed #d9b8c9;
+        }
+        .btn-add {
+            color: var(--pink-deep);
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 13px;
+            box-shadow: 5px 5px 10px #d8c3cd, -5px -5px 10px #fff7fb;
+        }
+        .btn-add:hover {
+            color: var(--pink-deep);
+            background: var(--neo-bg);
+            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
+        }
+        .btn-add:active {
+            box-shadow: inset 5px 5px 9px #d8c3cd, inset -5px -5px 9px #fff7fb;
+        }
+        .btn-add.selected {
+            color: #fff;
+            background: linear-gradient(145deg, #d95b99, #b83e7c);
+            box-shadow: 5px 5px 10px #d0b5c2, -4px -4px 9px #fff7fb;
+        }
+        .btn-disabled, .btn-disabled:hover {
+            color: #ad9aa4;
+            background: #eee2e8;
+            box-shadow: inset 3px 3px 6px #d8c8d0, inset -3px -3px 6px #fff7fb;
+        }
+
+        .bonus-item {
+            color: var(--ink);
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 18px;
+            box-shadow: 7px 7px 14px #d8c3cd, -7px -7px 14px #fff7fb;
+        }
+        .bonus-icon {
+            background: linear-gradient(145deg, #e878ad, #c44785);
+            box-shadow: 3px 3px 7px #d2b7c4, -3px -3px 7px #fff7fb;
+        }
+        .bonus-item strong { color: var(--berry); }
+        .bonus-item small { color: var(--muted); }
+
+        .checkout-container {
+            color: var(--ink);
+            background: rgba(242,226,233,.97);
+            border: 1px solid rgba(255,255,255,.8);
+            border-radius: 24px;
+            box-shadow: 12px 12px 28px rgba(157,119,139,.28), -8px -8px 20px rgba(255,247,251,.9);
+        }
+        .data-form h4 { color: var(--berry); }
+        .mini-bonus-box {
+            background: var(--neo-bg);
+            border: 0;
+            border-radius: 15px;
+            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
+        }
+        .mini-bonus-title { color: var(--pink-deep); }
+        .mini-bonus-item {
+            color: var(--ink);
+            background: var(--neo-bg);
+            border: 0;
+            box-shadow: 3px 3px 6px #d8c3cd, -3px -3px 6px #fff7fb;
+        }
+        .rek-box {
+            color: #805a1c;
+            background: #f3e9d8;
+            border: 1px dashed #d6ad70;
+            border-radius: 13px;
+        }
+        .btn-wa {
+            background: linear-gradient(145deg, #e46ba6, #c43e83);
+            border: 0;
+            border-radius: 14px;
+            box-shadow: 6px 6px 12px #d1b8c4, -5px -5px 10px #fff7fb;
+        }
+        .btn-wa:hover { box-shadow: inset 4px 4px 8px rgba(128,35,81,.22), inset -4px -4px 8px rgba(255,255,255,.18); }
+        .footer-note { color: var(--muted); }
+        .footer-note a { color: var(--pink-deep); }
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+            outline: 3px solid rgba(217,79,145,.55);
+            outline-offset: 3px;
+        }
+
+        @media (max-width:650px) {
+            .hero { border-radius: 0 0 30px 30px; }
+            .card { border-radius: 20px; }
+            .checkout-container { border-radius: 20px; }
+        }
+
     </style>
 </head>
 <body>
