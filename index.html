@@ -7,86 +7,94 @@
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,800;1,600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --pink: #ec2387;
-            --pink-deep: #970d4e;
-            --berry: #700a3b;
-            --rose: #fff0f6;
-            --rose-soft: #fff8fb;
-            --gold: #e9bd68;
-            --ink: #3d1730;
-            --muted: #806779;
-            --line: #f4c7dc;
-            --shadow: 0 16px 40px rgba(135, 13, 71, .11);
+            --pink: #d94f91;
+            --pink-deep: #a8326d;
+            --berry: #743653;
+            --rose: #f7e5ee;
+            --rose-soft: #f7e9ef;
+            --gold: #d6ad70;
+            --ink: #59394a;
+            --muted: #967789;
+            --line: #ead1dd;
+            --shadow: 8px 8px 18px #d9c4ce, -8px -8px 18px #ffffff;
             --radius: 24px;
+            --neo-bg: #f2e2e9;
+            --neo-light: #fff7fb;
+            --neo-dark: #d7c2cc;
         }
+
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
         body {
             font-family: 'Plus Jakarta Sans', sans-serif;
             color: var(--ink);
-            background:
-                radial-gradient(circle at 0% 25%, rgba(236,35,135,.07), transparent 24rem),
-                radial-gradient(circle at 100% 70%, rgba(233,189,104,.10), transparent 22rem),
-                var(--rose-soft);
-            padding-bottom: 190px;
+            background: var(--neo-bg);
+            background-image:
+                radial-gradient(circle at 8% 8%, rgba(255,255,255,.72), transparent 25rem),
+                radial-gradient(circle at 95% 60%, rgba(217,79,145,.08), transparent 28rem);
+            padding-bottom: 210px;
         }
         a { color: inherit; }
+
+        /* HERO SECTION */
         .hero {
             position: relative; isolation: isolate; overflow: hidden;
-            color: #fff; text-align: left;
+            color: var(--berry); text-align: left;
             padding: 30px 22px 66px;
-            border-radius: 0 0 42px 42px;
-            background:
-                radial-gradient(ellipse at 92% 12%, rgba(255,112,184,.5), transparent 32%),
-                radial-gradient(ellipse at 4% 100%, rgba(255,255,255,.12), transparent 38%),
-                linear-gradient(128deg, #760735 0%, #b10d59 48%, #f02b91 100%);
-            box-shadow: 0 18px 42px rgba(125, 8, 60, .2);
+            border-radius: 0 0 38px 38px;
+            background: var(--neo-bg);
+            box-shadow: 10px 10px 24px #d6c1cb, -10px -10px 24px #fff7fb;
+            border: 1px solid rgba(255,255,255,.65);
         }
         .hero::before, .hero::after {
             content: ''; position: absolute; z-index: -1; pointer-events: none;
-            border: 1px solid rgba(255,255,255,.18); border-radius: 50%;
+            border: 1px solid rgba(190,105,148,.18); border-radius: 50%;
             transform: rotate(-18deg);
         }
-        .hero::before { width: 480px; height: 220px; right: -130px; top: 110px; box-shadow: 0 0 0 15px rgba(255,255,255,.025), 0 0 0 30px rgba(255,255,255,.025); }
-        .hero::after { width: 360px; height: 150px; left: -180px; bottom: -65px; border-color: rgba(233,189,104,.65); }
+        .hero::before { width: 480px; height: 220px; right: -130px; top: 110px; box-shadow: 0 0 0 15px rgba(190,105,148,.025), 0 0 0 30px rgba(190,105,148,.02); }
+        .hero::after { width: 360px; height: 150px; left: -180px; bottom: -65px; border-color: rgba(214,173,112,.48); }
         .hero-inner { max-width: 1160px; margin: auto; position: relative; }
         .hero-top { display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom: 30px; }
         .brand-lockup { display:flex; align-items:center; gap:13px; }
         .hero-logo {
             width: 62px; height: 62px; object-fit: contain; flex-shrink:0;
-            background:#fff; border:2px solid rgba(255,255,255,.8); border-radius:18px;
-            padding:4px; box-shadow:0 8px 24px rgba(0,0,0,.15);
+            background: var(--neo-bg); border-radius:18px; padding:4px;
+            box-shadow: 5px 5px 11px #d6c1cb, -5px -5px 11px #fff7fb;
         }
-        .brand-name { font-size:1rem; letter-spacing:.24em; font-weight:800; line-height:1.35; }
-        .brand-name span { display:block; font-size:.66rem; letter-spacing:.34em; font-weight:600; opacity:.84; }
-        .hero-tag { font-size:.78rem; font-weight:700; text-align:right; line-height:1.6; color:#ffe8f2; }
+        .brand-name { font-size:1rem; letter-spacing:.24em; font-weight:800; line-height:1.35; color: var(--berry); }
+        .brand-name span { display:block; font-size:.66rem; letter-spacing:.34em; font-weight:600; color: var(--muted); }
+        .hero-tag { font-size:.78rem; font-weight:700; text-align:right; line-height:1.6; color: #866477; }
         .hero-tag::after { content:''; display:block; width:44px; height:3px; border-radius:5px; background:var(--gold); margin:8px 0 0 auto; }
         .hero-copy { max-width:780px; }
-        .eyebrow { display:inline-flex; align-items:center; gap:8px; color:#ffe3ef; text-transform:uppercase; letter-spacing:.2em; font-size:.72rem; font-weight:800; margin-bottom:14px; }
+        .eyebrow { display:inline-flex; align-items:center; gap:8px; color:var(--pink-deep); text-transform:uppercase; letter-spacing:.2em; font-size:.72rem; font-weight:800; margin-bottom:14px; }
         .eyebrow::before { content:''; width:28px; height:2px; background:var(--gold); }
         .hero h1 {
             font-family:'Playfair Display', serif; font-size:clamp(2.65rem, 7vw, 5.25rem);
             line-height:.99; letter-spacing:-.045em; font-weight:800; max-width:850px;
-            margin-bottom:20px; text-wrap:balance; text-shadow:0 5px 18px rgba(57,0,28,.15);
+            margin-bottom:20px; text-wrap:balance; color: var(--berry);
         }
-        .hero h1 em { color:#ffd9e9; font-style:italic; }
-        .hero p { max-width:610px; font-size:clamp(.96rem, 2vw, 1.12rem); line-height:1.8; color:rgba(255,255,255,.88); }
+        .hero h1 em { color:var(--pink); font-style:italic; }
+        .hero p { max-width:610px; font-size:clamp(.96rem, 2vw, 1.12rem); line-height:1.8; color: #866477; }
         .hero-actions { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin-top:25px; }
         .hero-cta, .hero-wa {
             display:inline-flex; align-items:center; justify-content:center; gap:9px; text-decoration:none;
-            padding:13px 19px; border-radius:999px; font-size:.88rem; font-weight:800; transition:.2s;
+            padding:13px 19px; border-radius:15px; font-size:.88rem; font-weight:800; transition:.2s ease;
+            box-shadow: 6px 6px 12px #d6c1cb, -6px -6px 12px #fff7fb;
         }
-        .hero-cta { background:#fff; color:var(--pink-deep); box-shadow:0 8px 24px rgba(50,0,20,.15); }
-        .hero-wa { border:1px solid rgba(255,255,255,.42); color:#fff; background:rgba(255,255,255,.11); backdrop-filter:blur(8px); }
-        .hero-cta:hover, .hero-wa:hover { transform:translateY(-3px); }
+        .hero-cta { color:var(--pink-deep); background:var(--neo-bg); }
+        .hero-wa { color:var(--pink-deep); background:var(--neo-bg); }
+        .hero-cta:hover, .hero-wa:hover { transform:translateY(-2px); }
+        .hero-cta:active, .hero-wa:active { transform:translateY(1px); box-shadow: inset 5px 5px 10px #d6c1cb, inset -5px -5px 10px #fff7fb; }
         .hero-cta span { color:var(--pink); font-size:1.1rem; }
         .social-media { display:flex; align-items:center; gap:9px; }
-        .soc-icon { display:grid; place-items:center; width:34px; height:34px; border:1px solid rgba(255,255,255,.32); border-radius:50%; color:#fff; background:rgba(255,255,255,.12); transition:.2s; }
+        .soc-icon { display:grid; place-items:center; width:34px; height:34px; border-radius:50%; color:var(--pink-deep); background:var(--neo-bg); box-shadow: 4px 4px 8px #d6c1cb, -4px -4px 8px #fff7fb; transition:.2s; }
         .soc-icon svg { width:16px; height:16px; fill:currentColor; }
-        .soc-icon:hover { color:var(--pink-deep); background:#fff; transform:translateY(-2px); }
-        .hero-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:30px; padding-top:18px; border-top:1px solid rgba(255,255,255,.2); color:#ffe7f1; font-size:.78rem; line-height:1.7; }
-        .hero-bottom a { text-decoration:none; }
+        .soc-icon:hover { color:#fff; background:var(--pink); }
+        .hero-bottom { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-top:30px; padding-top:18px; border-top:1px solid #dfcbd5; color:#866477; font-size:.78rem; line-height:1.7; }
+        .hero-bottom a { color: var(--pink-deep); text-decoration:none; }
         .hero-bottom a:hover { text-decoration:underline; }
+
+        /* LAYOUT CONTAINER */
         .container { max-width:1200px; margin:0 auto; padding:0 22px; }
         .intro-strip { display:flex; align-items:center; justify-content:space-between; gap:18px; margin:32px 0 12px; }
         .section-kicker { color:var(--pink); font-size:.7rem; font-weight:800; letter-spacing:.2em; text-transform:uppercase; margin-bottom:7px; }
@@ -95,61 +103,109 @@
         .catalog-tools { display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap; margin:22px 0; }
         .catalog-count { color:var(--muted); font-size:.84rem; }
         .catalog-count strong { color:var(--pink-deep); }
-        .catalog-tip { background:#fff; border:1px solid var(--line); color:var(--muted); border-radius:999px; padding:9px 13px; font-size:.77rem; }
+        .catalog-tip { background:var(--neo-bg); border-radius:999px; padding:9px 13px; font-size:.77rem; color:var(--muted); box-shadow: 5px 5px 10px #d9c4ce, -5px -5px 10px #fff7fb; }
+        
+        /* MENU GRID & CARD UI */
         .menu-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
         .card {
-            background:#fff; border:1px solid rgba(244,199,220,.9); border-radius:22px; overflow:hidden;
-            display:flex; flex-direction:column; min-width:0; box-shadow:0 5px 20px rgba(135,13,71,.045);
-            transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;
+            background:var(--neo-bg); border-radius:23px; overflow:hidden;
+            display:flex; flex-direction:column; min-width:0;
+            box-shadow: 8px 8px 17px #d8c3cd, -8px -8px 17px #fff7fb;
+            transition:transform .22s ease, box-shadow .22s ease;
         }
-        .card:hover { transform:translateY(-5px); box-shadow:var(--shadow); border-color:#ee8bbb; }
-        .card-img-wrapper { position:relative; width:100%; padding-top:100%; overflow:hidden; background:linear-gradient(135deg,#fff0f6,#f9dce9); }
-        .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
-        .card:hover .card-img { transform:scale(1.045); }
-        .card-info { padding:17px; display:flex; flex-direction:column; flex-grow:1; }
-        .card-code { align-self:flex-start; font-size:.82rem; font-weight:800; letter-spacing:.09em; color:var(--pink-deep); background:#fff0f6; border:1px solid #f8d2e3; padding:7px 12px; border-radius:999px; margin-bottom:16px; }
+        .card:hover { transform:translateY(-4px); box-shadow: 11px 11px 21px #d3bec8, -9px -9px 20px #fff9fc; }
+        .card-img-wrapper {
+            position:relative; margin: 11px 11px 0; width: calc(100% - 22px); padding-top: calc(100% - 22px);
+            border-radius:17px; background:#eedce5; overflow:hidden;
+            box-shadow: inset 4px 4px 8px #d4c0ca, inset -4px -4px 8px #fff7fb; cursor: pointer;
+        }
+        .card-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; border-radius:17px; transition:transform .4s ease; }
+        .card:hover .card-img { transform:scale(1.05); }
+        .zoom-hint { position:absolute; bottom:8px; right:8px; background:rgba(0,0,0,.45); color:#fff; font-size:.65rem; padding:3px 7px; border-radius:6px; backdrop-filter:blur(3px); pointer-events:none; }
+        
+        .card-info { padding:17px 19px 19px; display:flex; flex-direction:column; flex-grow:1; }
+        .card-head { display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+        .card-code { color:var(--pink-deep); background:var(--neo-bg); font-size:.82rem; font-weight:800; letter-spacing:.09em; padding:6px 12px; border-radius:999px; box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb; }
+        .card-start-price { font-size:.72rem; color:var(--muted); font-weight:700; }
+
+        /* FORM CONTROLS */
         .form-group { margin-bottom:12px; }
         .form-group label { display:block; font-size:.68rem; font-weight:800; color:var(--muted); margin-bottom:7px; text-transform:uppercase; letter-spacing:.07em; }
         .select-style, .input-style, .data-input {
-            width:100%; padding:11px 12px; border:1.5px solid #f0d6e2; border-radius:12px;
-            font-family:inherit; font-size:.86rem; color:var(--ink); background:#fff; outline:none; transition:.2s;
+            width:100%; padding:11px 12px; border:0; border-radius:13px;
+            font-family:inherit; font-size:.86rem; color:var(--ink); background:var(--neo-bg); outline:none; transition:.2s;
+            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
         }
-        .select-style:focus, .input-style:focus, .data-input:focus { border-color:var(--pink); box-shadow:0 0 0 4px rgba(236,35,135,.1); }
-        .price-display { background:linear-gradient(135deg,#fff1f7,#fffafd); border:1px solid #f7d9e7; border-radius:14px; padding:12px; margin:7px 0 14px; font-size:.8rem; }
+        .select-style:focus, .input-style:focus, .data-input:focus {
+            box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb, 0 0 0 2px rgba(217,79,145,.25);
+        }
+        .validation-tip { font-size:.7rem; color:#b82d2d; margin-top:4px; display:none; font-weight:700; }
+        
+        .price-display {
+            color:var(--muted); background:var(--neo-bg); border-radius:15px; padding:12px; margin:7px 0 14px; font-size:.8rem;
+            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
+        }
         .price-row { display:flex; justify-content:space-between; gap:8px; margin-bottom:5px; color:var(--muted); }
-        .price-total { border-top:1px dashed #eabbd1; padding-top:9px; margin-top:8px; margin-bottom:0; font-size:.96rem; font-weight:800; color:var(--pink-deep); }
-        .btn-add { margin-top:auto; width:100%; padding:12px; border-radius:12px; border:1.5px solid var(--pink); color:var(--pink-deep); background:#fff; font-family:inherit; font-size:.84rem; font-weight:800; cursor:pointer; transition:.2s; }
-        .btn-add:hover { background:var(--pink); color:#fff; box-shadow:0 7px 18px rgba(236,35,135,.22); }
-        .btn-add.selected { background:#14875b; border-color:#14875b; color:#fff; }
-        .btn-disabled, .btn-disabled:hover { background:#f4f0f2; border-color:#e5dce1; color:#a99ba3; cursor:not-allowed; box-shadow:none; }
+        .price-total { border-top:1px dashed #d9b8c9; padding-top:9px; margin-top:8px; margin-bottom:0; font-size:.96rem; font-weight:800; color:var(--pink-deep); }
+        
+        /* BUTTONS */
+        .btn-add {
+            margin-top:auto; width:100%; padding:12px; border-radius:13px; border:0;
+            color:var(--pink-deep); background:var(--neo-bg); font-family:inherit; font-size:.84rem; font-weight:800;
+            cursor:pointer; transition:.2s ease; box-shadow: 5px 5px 10px #d8c3cd, -5px -5px 10px #fff7fb;
+        }
+        .btn-add:hover { box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb; }
+        .btn-add:active { box-shadow: inset 5px 5px 9px #d8c3cd, inset -5px -5px 9px #fff7fb; }
+        .btn-add.selected { color:#fff; background:linear-gradient(145deg, #d95b99, #b83e7c); box-shadow: 5px 5px 10px #d0b5c2, -4px -4px 9px #fff7fb; }
+        .btn-disabled, .btn-disabled:hover { color:#ad9aa4; background:#eee2e8; box-shadow: inset 3px 3px 6px #d8c8d0, inset -3px -3px 6px #fff7fb; cursor:not-allowed; }
         .stock-overlay { position:absolute; inset:0; background:rgba(48,14,33,.66); backdrop-filter:blur(3px); display:flex; align-items:center; justify-content:center; z-index:2; }
         .stock-text { color:#fff; font-weight:800; border:2px solid #fff; padding:8px 14px; border-radius:8px; transform:rotate(-8deg); font-size:.82rem; letter-spacing:.14em; }
+
+        /* BONUS BAND */
         .bonus-band { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin:30px 0 38px; }
-        .bonus-item { display:flex; align-items:center; gap:12px; background:#fff; border:1px solid var(--line); padding:15px; border-radius:17px; box-shadow:0 5px 18px rgba(135,13,71,.04); }
-        .bonus-icon { display:grid; place-items:center; flex-shrink:0; width:38px; height:38px; border-radius:50%; background:linear-gradient(135deg,#ff5ca7,#b50c5d); color:#fff; font-size:1.05rem; }
+        .bonus-item { display:flex; align-items:center; gap:12px; background:var(--neo-bg); padding:15px; border-radius:18px; box-shadow: 7px 7px 14px #d8c3cd, -7px -7px 14px #fff7fb; }
+        .bonus-icon { display:grid; place-items:center; flex-shrink:0; width:38px; height:38px; border-radius:50%; background:linear-gradient(145deg, #e878ad, #c44785); color:#fff; font-size:1.05rem; box-shadow: 3px 3px 7px #d2b7c4, -3px -3px 7px #fff7fb; }
         .bonus-item strong { display:block; font-size:.82rem; color:var(--berry); line-height:1.5; }
         .bonus-item small { display:block; font-size:.72rem; color:var(--muted); margin-top:2px; }
+
+        /* CHECKOUT PANEL */
         .checkout-container {
             position:fixed; z-index:1000; bottom:16px; left:50%; transform:translateX(-50%);
             width:calc(100% - 24px); max-width:670px; max-height:88vh; overflow-y:auto;
-            display:none; padding:20px; border:1px solid #f1b4d0; border-radius:24px;
-            background:rgba(255,255,255,.97); backdrop-filter:blur(16px);
-            box-shadow:0 22px 65px rgba(91,5,45,.3); animation:slideUp .28s ease-out;
+            display:none; padding:20px; border:1px solid rgba(255,255,255,.8); border-radius:24px;
+            background:rgba(242,226,233,.97); backdrop-filter:blur(16px);
+            box-shadow: 12px 12px 28px rgba(157,119,139,.28), -8px -8px 20px rgba(255,247,251,.9); animation:slideUp .28s ease-out;
         }
         @keyframes slideUp { from { transform:translate(-50%,20px); opacity:0; } to { transform:translate(-50%,0); opacity:1; } }
         .data-form h4 { font-family:'Playfair Display',serif; color:var(--berry); font-size:1.45rem; margin-bottom:13px; }
-        .mini-bonus-box { position:sticky; top:-1px; z-index:8; background:linear-gradient(120deg,#fff0f6 0%,#fffafc 100%); border:1px solid var(--line); border-radius:14px; padding:12px; margin-bottom:13px; box-shadow:0 8px 18px rgba(135,13,71,.10); }
-        .mini-bonus-title { display:flex; align-items:center; gap:6px; }
-        .mini-bonus-item { white-space:nowrap; }
+        .mini-bonus-box { position:sticky; top:-1px; z-index:8; background:var(--neo-bg); border-radius:15px; padding:12px; margin-bottom:13px; box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb; }
         .mini-bonus-title { font-size:.72rem; text-transform:uppercase; font-weight:800; color:var(--pink-deep); margin-bottom:8px; letter-spacing:.08em; }
         .mini-bonus-list { display:flex; flex-wrap:wrap; gap:6px; }
-        .mini-bonus-item { background:#fff; padding:6px 9px; border-radius:999px; font-size:.7rem; font-weight:700; color:var(--ink); border:1px solid var(--line); }
+        .mini-bonus-item { background:var(--neo-bg); padding:6px 9px; border-radius:999px; font-size:.7rem; font-weight:700; color:var(--ink); box-shadow: 3px 3px 6px #d8c3cd, -3px -3px 6px #fff7fb; }
+        
+        .summary-box { background:var(--neo-bg); padding:12px; border-radius:14px; margin-bottom:12px; font-size:0.85rem; box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb; display:flex; justify-content:space-between; align-items:flex-start; }
+        .btn-cancel { border:0; background:none; color:#b82d2d; font-size:.75rem; font-weight:800; cursor:pointer; text-decoration:underline; }
+
+        .form-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+
+        .template-btn { display:inline-block; font-size:.75rem; font-weight:800; color:#fff; background:linear-gradient(145deg, #d95b99, #b83e7c); padding:8px 14px; border-radius:10px; border:0; margin:10px 0; cursor:pointer; box-shadow: 3px 3px 6px #d8c3cd, -3px -3px 6px #fff7fb; width:100%; text-align:center; }
+        .template-btn:active { box-shadow: inset 2px 2px 4px #d8c3cd, inset -2px -2px 4px #fff7fb; }
+
         .data-input { display:block; margin:7px 0 10px; resize:vertical; }
-        .rek-box { background:#fff9ed; padding:12px; border-radius:12px; font-size:.8rem; border:1px dashed #e4bd70; margin-top:10px; color:#805a1c; line-height:1.65; }
-        .btn-wa { background:linear-gradient(135deg,#21c967,#0c9d54); color:#fff; width:100%; padding:14px; border-radius:13px; font-family:inherit; font-weight:800; border:none; cursor:pointer; font-size:.95rem; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; box-shadow:0 7px 18px rgba(37,211,102,.22); transition:.2s; }
-        .btn-wa:hover { transform:translateY(-2px); box-shadow:0 10px 24px rgba(37,211,102,.3); }
+        .rek-box { color:#805a1c; background:#f3e9d8; border:1px dashed #d6ad70; border-radius:13px; padding:12px; font-size:.8rem; margin-top:10px; line-height:1.65; }
+        .btn-wa { background:linear-gradient(145deg, #e46ba6, #c43e83); color:#fff; width:100%; padding:14px; border-radius:14px; font-family:inherit; font-weight:800; border:none; cursor:pointer; font-size:.95rem; display:flex; align-items:center; justify-content:center; gap:8px; margin-top:12px; box-shadow: 6px 6px 12px #d1b8c4, -5px -5px 10px #fff7fb; transition:.2s ease; }
+        .btn-wa:hover { box-shadow: inset 4px 4px 8px rgba(128,35,81,.22), inset -4px -4px 8px rgba(255,255,255,.18); }
+
+        /* LIGHTBOX MODAL */
+        .lightbox-modal { position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,.85); backdrop-filter:blur(5px); display:none; place-items:center; padding:20px; }
+        .lightbox-content { max-width:90vw; max-height:85vh; border-radius:16px; box-shadow:0 10px 30px rgba(0,0,0,.5); }
+        .lightbox-close { position:absolute; top:20px; right:20px; color:#fff; font-size:2rem; font-weight:bold; cursor:pointer; }
+
         .footer-note { text-align:center; color:var(--muted); font-size:.78rem; padding:4px 0 32px; line-height:1.8; }
         .footer-note a { color:var(--pink-deep); font-weight:800; text-decoration:none; }
+
+        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline: 3px solid rgba(217,79,145,.55); outline-offset: 3px; }
+
         @media (min-width:800px) { .hero { padding:34px 30px 52px; } .hero-copy { padding:12px 0 8px; } }
         @media (min-width:651px) and (max-width:999px) { .menu-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
         @media (max-width:650px) {
@@ -171,7 +227,7 @@
             .menu-grid { grid-template-columns:1fr; gap:18px; }
             .card { border-radius:20px; }
             .card-info { padding:18px; }
-            .card-code { font-size:.82rem; margin-bottom:14px; }
+            .card-code { font-size:.82rem; }
             .form-group label { font-size:.7rem; letter-spacing:.05em; }
             .select-style, .input-style { padding:12px; font-size:.88rem; }
             .price-display { padding:12px; font-size:.82rem; }
@@ -179,238 +235,14 @@
             .btn-add { font-size:.86rem; padding:13px; }
             .bonus-band { grid-template-columns:1fr; gap:9px; margin:24px 0 28px; }
             .bonus-item { padding:11px 13px; }
-            .checkout-container { padding:12px; bottom:8px; width:calc(100% - 16px); max-height:82vh; border-radius:19px; }
+            .checkout-container { padding:14px; bottom:8px; width:calc(100% - 16px); max-height:82vh; border-radius:20px; }
             .mini-bonus-box { top:-1px; padding:10px; margin-bottom:10px; border-radius:12px; }
             .mini-bonus-title { font-size:.69rem; margin-bottom:7px; }
             .mini-bonus-list { gap:5px; }
             .mini-bonus-item { font-size:.65rem; padding:5px 7px; }
+            .form-grid-2 { grid-template-columns:1fr; }
         }
         @media (max-width:360px) { .hero-tag { max-width:105px; } }
-    
-        /* ===== RANA PRINTING · PINK NEUMORPHISM ===== */
-        :root {
-            --pink: #d94f91;
-            --pink-deep: #a8326d;
-            --berry: #743653;
-            --rose: #f7e5ee;
-            --rose-soft: #f7e9ef;
-            --gold: #d6ad70;
-            --ink: #59394a;
-            --muted: #967789;
-            --line: #ead1dd;
-            --shadow: 8px 8px 18px #d9c4ce, -8px -8px 18px #ffffff;
-            --radius: 24px;
-            --neo-bg: #f2e2e9;
-            --neo-light: #fff7fb;
-            --neo-dark: #d7c2cc;
-        }
-
-        body {
-            color: var(--ink);
-            background: var(--neo-bg);
-            background-image:
-                radial-gradient(circle at 8% 8%, rgba(255,255,255,.72), transparent 25rem),
-                radial-gradient(circle at 95% 60%, rgba(217,79,145,.08), transparent 28rem);
-        }
-
-        .hero {
-            color: var(--berry);
-            background: var(--neo-bg);
-            border-radius: 0 0 38px 38px;
-            box-shadow: 10px 10px 24px #d6c1cb, -10px -10px 24px #fff7fb;
-            border: 1px solid rgba(255,255,255,.65);
-        }
-        .hero::before, .hero::after {
-            border-color: rgba(190,105,148,.18);
-            box-shadow: 0 0 0 15px rgba(190,105,148,.025), 0 0 0 30px rgba(190,105,148,.02);
-        }
-        .hero::after { border-color: rgba(214,173,112,.48); }
-        .hero-logo {
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 18px;
-            box-shadow: 5px 5px 11px #d6c1cb, -5px -5px 11px #fff7fb;
-        }
-        .brand-name { color: var(--berry); }
-        .brand-name span { color: var(--muted); }
-        .hero-tag, .hero p, .hero-bottom { color: #866477; }
-        .hero-tag::after, .eyebrow::before { background: var(--gold); }
-        .eyebrow { color: var(--pink-deep); }
-        .hero h1 { color: var(--berry); text-shadow: none; }
-        .hero h1 em { color: var(--pink); }
-        .hero-cta, .hero-wa {
-            border: 0;
-            border-radius: 15px;
-            box-shadow: 6px 6px 12px #d6c1cb, -6px -6px 12px #fff7fb;
-            transition: transform .2s ease, box-shadow .2s ease;
-        }
-        .hero-cta { color: var(--pink-deep); background: var(--neo-bg); }
-        .hero-wa { color: var(--pink-deep); background: var(--neo-bg); }
-        .hero-cta:hover, .hero-wa:hover { transform: translateY(-2px); }
-        .hero-cta:active, .hero-wa:active {
-            transform: translateY(1px);
-            box-shadow: inset 5px 5px 10px #d6c1cb, inset -5px -5px 10px #fff7fb;
-        }
-        .soc-icon {
-            color: var(--pink-deep);
-            background: var(--neo-bg);
-            border: 0;
-            box-shadow: 4px 4px 8px #d6c1cb, -4px -4px 8px #fff7fb;
-        }
-        .soc-icon:hover { color: #fff; background: var(--pink); }
-        .hero-bottom { border-top-color: #dfcbd5; }
-        .hero-bottom a { color: var(--pink-deep); }
-
-        .section-kicker { color: var(--pink); }
-        .category-title { color: var(--berry); }
-        .catalog-count strong { color: var(--pink-deep); }
-        .catalog-tip {
-            background: var(--neo-bg);
-            border: 0;
-            color: var(--muted);
-            box-shadow: 5px 5px 10px #d9c4ce, -5px -5px 10px #fff7fb;
-        }
-
-        .card {
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 23px;
-            box-shadow: 8px 8px 17px #d8c3cd, -8px -8px 17px #fff7fb;
-            transition: transform .22s ease, box-shadow .22s ease;
-        }
-        .card:hover {
-            transform: translateY(-4px);
-            border-color: transparent;
-            box-shadow: 11px 11px 21px #d3bec8, -9px -9px 20px #fff9fc;
-        }
-        .card-img-wrapper {
-            margin: 11px 11px 0;
-            width: calc(100% - 22px);
-            padding-top: calc(100% - 22px);
-            border-radius: 17px;
-            background: #eedce5;
-            box-shadow: inset 4px 4px 8px #d4c0ca, inset -4px -4px 8px #fff7fb;
-        }
-        .card-img { border-radius: 17px; }
-        .card-info { padding: 17px 19px 19px; }
-        .card-code {
-            color: var(--pink-deep);
-            background: var(--neo-bg);
-            border: 0;
-            box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb;
-        }
-
-        .form-group label { color: var(--muted); }
-        .select-style, .input-style, .data-input {
-            color: var(--ink);
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 13px;
-            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
-        }
-        .select-style:focus, .input-style:focus, .data-input:focus {
-            border: 0;
-            box-shadow: inset 3px 3px 6px #d8c3cd, inset -3px -3px 6px #fff7fb, 0 0 0 2px rgba(217,79,145,.25);
-        }
-        .price-display {
-            color: var(--muted);
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 15px;
-            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
-        }
-        .price-row { color: var(--muted); }
-        .price-total {
-            color: var(--pink-deep);
-            border-top: 1px dashed #d9b8c9;
-        }
-        .btn-add {
-            color: var(--pink-deep);
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 13px;
-            box-shadow: 5px 5px 10px #d8c3cd, -5px -5px 10px #fff7fb;
-        }
-        .btn-add:hover {
-            color: var(--pink-deep);
-            background: var(--neo-bg);
-            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
-        }
-        .btn-add:active {
-            box-shadow: inset 5px 5px 9px #d8c3cd, inset -5px -5px 9px #fff7fb;
-        }
-        .btn-add.selected {
-            color: #fff;
-            background: linear-gradient(145deg, #d95b99, #b83e7c);
-            box-shadow: 5px 5px 10px #d0b5c2, -4px -4px 9px #fff7fb;
-        }
-        .btn-disabled, .btn-disabled:hover {
-            color: #ad9aa4;
-            background: #eee2e8;
-            box-shadow: inset 3px 3px 6px #d8c8d0, inset -3px -3px 6px #fff7fb;
-        }
-
-        .bonus-item {
-            color: var(--ink);
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 18px;
-            box-shadow: 7px 7px 14px #d8c3cd, -7px -7px 14px #fff7fb;
-        }
-        .bonus-icon {
-            background: linear-gradient(145deg, #e878ad, #c44785);
-            box-shadow: 3px 3px 7px #d2b7c4, -3px -3px 7px #fff7fb;
-        }
-        .bonus-item strong { color: var(--berry); }
-        .bonus-item small { color: var(--muted); }
-
-        .checkout-container {
-            color: var(--ink);
-            background: rgba(242,226,233,.97);
-            border: 1px solid rgba(255,255,255,.8);
-            border-radius: 24px;
-            box-shadow: 12px 12px 28px rgba(157,119,139,.28), -8px -8px 20px rgba(255,247,251,.9);
-        }
-        .data-form h4 { color: var(--berry); }
-        .mini-bonus-box {
-            background: var(--neo-bg);
-            border: 0;
-            border-radius: 15px;
-            box-shadow: inset 4px 4px 8px #d8c3cd, inset -4px -4px 8px #fff7fb;
-        }
-        .mini-bonus-title { color: var(--pink-deep); }
-        .mini-bonus-item {
-            color: var(--ink);
-            background: var(--neo-bg);
-            border: 0;
-            box-shadow: 3px 3px 6px #d8c3cd, -3px -3px 6px #fff7fb;
-        }
-        .rek-box {
-            color: #805a1c;
-            background: #f3e9d8;
-            border: 1px dashed #d6ad70;
-            border-radius: 13px;
-        }
-        .btn-wa {
-            background: linear-gradient(145deg, #e46ba6, #c43e83);
-            border: 0;
-            border-radius: 14px;
-            box-shadow: 6px 6px 12px #d1b8c4, -5px -5px 10px #fff7fb;
-        }
-        .btn-wa:hover { box-shadow: inset 4px 4px 8px rgba(128,35,81,.22), inset -4px -4px 8px rgba(255,255,255,.18); }
-        .footer-note { color: var(--muted); }
-        .footer-note a { color: var(--pink-deep); }
-        button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
-            outline: 3px solid rgba(217,79,145,.55);
-            outline-offset: 3px;
-        }
-
-        @media (max-width:650px) {
-            .hero { border-radius: 0 0 30px 30px; }
-            .card { border-radius: 20px; }
-            .checkout-container { border-radius: 20px; }
-        }
-
     </style>
 </head>
 <body>
@@ -451,26 +283,30 @@
                 <div class="section-kicker">Temukan desain favoritmu</div>
                 <h2 class="category-title">Katalog Undangan</h2>
             </div>
-            <p class="section-note">Pilih kode desain, tentukan jumlah cetak dan varian foto. Harga akan dihitung otomatis sebelum pesanan dikirim.</p>
+            <p class="section-note">Pilih desain favorit Anda satu per satu. Tentukan jumlah dan opsi varian foto sebelum mengirimkan data ke WhatsApp.</p>
         </section>
+        
         <div class="catalog-tools">
-            <p class="catalog-count">Semua desain <strong>undangan cetak</strong> dalam satu tempat.</p>
+            <p class="catalog-count">Jelajahi pilihan <strong>desain undangan cetak</strong> berikut:</p>
             <span class="catalog-tip">✦ Minimal pemesanan 100 pcs · kelipatan 100</span>
         </div>
+
         <div class="menu-grid" id="product-list"></div>
+
         <section class="bonus-band" aria-label="Bonus spesial undangan">
             <div class="bonus-item"><span class="bonus-icon">🎁</span><div><strong>Free plastik pembungkus</strong><small>Bonus untuk pesanan undangan</small></div></div>
             <div class="bonus-item"><span class="bonus-icon">✧</span><div><strong>Free stiker label nama</strong><small>Sentuhan personal untuk undanganmu</small></div></div>
             <div class="bonus-item"><span class="bonus-icon">✍</span><div><strong>Free ketik nama tamu</strong><small>Lebih praktis, siap dibagikan</small></div></div>
         </section>
+
         <div class="footer-note">Butuh bantuan memilih desain? Hubungi kami di <a href="https://wa.me/6281354637634" target="_blank" rel="noopener">WhatsApp 0813-5463-7634</a>.<br>Rana Printing · Undangan cantik untuk momen istimewa.</div>
     </main>
 
+    <!-- CHECKOUT PANEL -->
     <div class="checkout-container" id="checkoutArea">
         <div class="data-form">
             <h4>Data Pesanan Anda</h4>
             
-            <!-- BONUS SPESIAL YANG SELALU MUNCUL DI LAYAR -->
             <div class="mini-bonus-box">
                 <div class="mini-bonus-title">🎁 Bonus Spesial Otomatis:</div>
                 <div class="mini-bonus-list">
@@ -480,10 +316,56 @@
                 </div>
             </div>
 
-            <div id="orderSummary" style="background:#fff0f6; padding:10px 12px; border-radius:10px; margin-bottom:12px; font-size:0.85rem; border:1px dashed var(--border-color);"></div>
+            <div class="summary-box">
+                <div id="orderSummaryDetails"></div>
+                <button onclick="batalPilihan()" class="btn-cancel">Ganti Desain</button>
+            </div>
             
-            <label style="font-size:0.75rem; font-weight:700; color:var(--text-muted); display:block; margin-bottom:4px;">Isi Data Undangan (Mempelai, Tanggal, dll):</label>
-            <textarea id="redaksi" class="data-input" rows="3" placeholder="Tulis nama mempelai, waktu akad & resepsi, lokasi, dll..."></textarea>
+            <!-- FORM DATA REDAKSI -->
+            <div style="margin-top:10px;">
+                <div class="form-group">
+                    <label>Pilih Gaya Redaksional:</label>
+                    <select id="gayaRedaksi" class="select-style">
+                        <option value="umum">Format Redaksi Umum</option>
+                        <option value="islami" selected>Format Redaksi Islami</option>
+                        <option value="nasrani">Format Redaksi Nasrani</option>
+                    </select>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Mempelai Wanita & Urutan Anak:</label>
+                        <input type="text" id="mempelaiWanita" class="input-style" placeholder="contoh: Manda, S.Pd (Putri ke-4 dari Bapak Amil & Ibu Soraya)">
+                    </div>
+                    <div class="form-group">
+                        <label>Mempelai Pria & Urutan Anak:</label>
+                        <input type="text" id="mempelaiPria" class="input-style" placeholder="contoh: Ridwan, S.T (Putra ke-2 dari Bapak Rasyid & Ibu Mala)">
+                    </div>
+                </div>
+
+                <div class="form-grid-2">
+                    <div class="form-group">
+                        <label>Akad Nikah / Pemberkatan:</label>
+                        <input type="text" id="waktuAkad" class="input-style" placeholder="contoh: Sabtu, 12 Des 2026 | 09.00 WITA | Masjid Agung Pomalaa">
+                    </div>
+                    <div class="form-group">
+                        <label>Resepsi:</label>
+                        <input type="text" id="waktuResepsi" class="input-style" placeholder="contoh: Sabtu, 12 Des 2026 | 11.00 WITA - Selesai | Gedung Tamalatea">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Turut Mengundang (Keluarga Besar / Tokoh):</label>
+                    <textarea id="turutMengundang" class="data-input" rows="2" placeholder="contoh: 1. Kel. Besar Bpk Amil&#10;contoh: 2. Kel. Besar Bpk Rasyid"></textarea>
+                </div>
+
+                <button type="button" onclick="isiTemplateFormat()" class="template-btn">⚡ Generate Teks Redaksi</button>
+            </div>
+
+            <div style="margin-top:8px;">
+                <label style="font-size:0.75rem; font-weight:700; color:var(--muted);">Hasil Preview Teks Redaksi Undangan:</label>
+                <textarea id="redaksi" class="data-input" rows="5" placeholder="Teks redaksi otomatis tersusun di sini..."></textarea>
+            </div>
 
             <div class="rek-box">
                 <b>Transfer Pembayaran:</b> Bank BNI - <b>870841475</b> (a.n MUSDALIFAH SEPTIBERLIANA)
@@ -491,6 +373,12 @@
 
             <button onclick="kirimWhatsApp()" class="btn-wa">Kirim Order via WhatsApp</button>
         </div>
+    </div>
+
+    <!-- LIGHTBOX PREVIEW -->
+    <div class="lightbox-modal" id="lightboxModal" onclick="closeLightbox()">
+        <span class="lightbox-close">&times;</span>
+        <img class="lightbox-content" id="lightboxImg" alt="Preview Undangan">
     </div>
 
     <script>
@@ -516,9 +404,8 @@
         ];
 
         let activeOrder = null;
-
         const container = document.getElementById('product-list');
-        
+
         RAW_PRICES.forEach(item => {
             const kode = item[0];
             const harga1 = item[1]; 
@@ -546,30 +433,35 @@
             }
 
             card.innerHTML = `
-                <div class="card-img-wrapper">
+                <div class="card-img-wrapper" onclick="openLightbox('${gambar}')">
                     ${overlayHtml}
                     <img src="${gambar}" alt="${kode}" class="card-img" onerror="this.src='https://via.placeholder.com/300/fce7f3/e6007e?text=${kode}'">
+                    <span class="zoom-hint">🔍 Klik perbesar</span>
                 </div>
                 <div class="card-info">
-                    <div class="card-code">${kode}</div>
+                    <div class="card-head">
+                        <div class="card-code">${kode}</div>
+                        <div class="card-start-price">Mulai Rp ${harga2.toLocaleString('id-ID')}</div>
+                    </div>
                     
                     <div class="form-group">
                         <label>Jumlah (Kelipatan 100)</label>
                         <input type="number" id="qty-${id}" class="input-style" placeholder="100, 200, 300..." min="100" step="100" oninput="hitung('${id}', ${harga1}, ${harga2})" ${inputDisabled}>
+                        <div id="val-tip-${id}" class="validation-tip">⚠️ Masukkan kelipatan 100 (Min. 100)</div>
                     </div>
                     
                     <div class="form-group">
                         <label>Varian Cetak</label>
                         <select id="var-${id}" class="select-style" onchange="hitung('${id}', ${harga1}, ${harga2})" ${inputDisabled}>
                             <option value="polos">Tanpa Foto</option>
-                            <option value="foto1">+1 Foto (Rp 300)</option>
-                            <option value="foto2">+2 Foto (Rp 500)</option>
+                            <option value="foto1">+1 Foto (+Rp 300)</option>
+                            <option value="foto2">+2 Foto (+Rp 500)</option>
                         </select>
                     </div>
 
                     <div class="price-display">
-                        <div class="price-row"><span>Satuan:</span> <span id="satuan-${id}">-</span></div>
-                        <div class="price-row price-total"><span>Total:</span> <span id="total-${id}">Rp 0</span></div>
+                        <div class="price-row"><span>Harga Satuan:</span> <span id="satuan-${id}">-</span></div>
+                        <div class="price-row price-total"><span>Total Harga:</span> <span id="total-${id}">Rp 0</span></div>
                     </div>
 
                     <button class="${buttonClass}" id="btn-${id}" ${buttonAction}>${buttonText}</button>
@@ -580,14 +472,22 @@
 
         function hitung(id, basePriceSmall, basePriceBig) {
             if (basePriceSmall === 0) return null;
-            const qtyVal = document.getElementById(`qty-${id}`).value;
+            const qtyInput = document.getElementById(`qty-${id}`);
+            const valTip = document.getElementById(`val-tip-${id}`);
             const varian = document.getElementById(`var-${id}`).value;
-            let qty = parseInt(qtyVal);
+            let qty = parseInt(qtyInput.value);
 
             if(!qty || qty <= 0) {
+                valTip.style.display = "none";
                 document.getElementById(`satuan-${id}`).innerText = "-";
                 document.getElementById(`total-${id}`).innerText = "Rp 0";
                 return null;
+            }
+
+            if(qty < 100 || qty % 100 !== 0) {
+                valTip.style.display = "block";
+            } else {
+                valTip.style.display = "none";
             }
 
             let basePrice = (qty >= 500) ? basePriceBig : basePriceSmall;
@@ -605,18 +505,18 @@
         }
 
         function pilih(id, kode) {
-            const qtyVal = document.getElementById(`qty-${id}`).value;
-            const qty = parseInt(qtyVal);
+            const qtyInput = document.getElementById(`qty-${id}`);
+            const qty = parseInt(qtyInput.value);
 
             if(!qty || qty < 100) {
                 alert("Minimal pemesanan adalah 100 pcs.");
-                document.getElementById(`qty-${id}`).focus();
+                qtyInput.focus();
                 return;
             }
 
             if(qty % 100 !== 0) {
-                alert("Mohon maaf, pembelian kertas undangan hanya bisa kelipatan 100.\n\nContoh yang benar: 100, 200, 300, 500, dst.");
-                document.getElementById(`qty-${id}`).focus();
+                alert("Mohon maaf, pemesanan hanya dapat dilakukan dalam kelipatan 100.\nContoh: 100, 200, 300, 500 pcs.");
+                qtyInput.focus();
                 return;
             }
 
@@ -631,7 +531,7 @@
             });
             
             const btn = document.getElementById(`btn-${id}`);
-            btn.innerText = "✓ Dipilih";
+            btn.innerText = "✓ Desain Dipilih";
             btn.classList.add('selected');
 
             let varianLabel = (calc.varian === 'polos') ? 'Tanpa Foto' : (calc.varian === 'foto1' ? '+1 Foto' : '+2 Foto');
@@ -644,36 +544,99 @@
                 total: calc.total
             };
 
-            const summary = document.getElementById('orderSummary');
+            const summary = document.getElementById('orderSummaryDetails');
             summary.innerHTML = `
-                <strong style="color: var(--primary-dark); font-size: 0.95rem;">${activeOrder.kode}</strong> - 
-                <b>${activeOrder.qty} pcs</b> (${activeOrder.varian})<br>
-                <div style="margin-top:4px; font-weight:800; color:var(--primary); font-size:1rem;">
-                    Total: Rp ${activeOrder.total.toLocaleString('id-ID')}
+                <div>
+                    <strong style="color: var(--pink-deep); font-size: 0.95rem;">${activeOrder.kode}</strong> - 
+                    <b>${activeOrder.qty} pcs</b> (${activeOrder.varian})
+                    <div style="margin-top:2px; font-weight:800; color:var(--berry); font-size:0.95rem;">
+                        Total: Rp ${activeOrder.total.toLocaleString('id-ID')}
+                    </div>
                 </div>
             `;
             
             document.getElementById('checkoutArea').style.display = 'block';
-            document.getElementById('redaksi').focus();
+        }
+
+        function batalPilihan() {
+            activeOrder = null;
+            document.getElementById('checkoutArea').style.display = 'none';
+            document.querySelectorAll('.btn-add').forEach(b => {
+                if(!b.classList.contains('btn-disabled')) {
+                    b.innerText = "Pilih Desain Ini";
+                    b.classList.remove('selected');
+                }
+            });
+        }
+
+        function isiTemplateFormat() {
+            const gaya = document.getElementById('gayaRedaksi').value;
+            const wanita = document.getElementById('mempelaiWanita').value || "Manda (Putri ke-4 dari Bapak Amil & Ibu Soraya)";
+            const pria = document.getElementById('mempelaiPria').value || "Ridwan (Putra ke-2 dari Bapak Rasyid & Ibu Mala)";
+            const akad = document.getElementById('waktuAkad').value || "[Hari, Tanggal | Jam | Tempat]";
+            const resepsi = document.getElementById('waktuResepsi').value || "[Hari, Tanggal | Jam | Tempat]";
+            const turut = document.getElementById('turutMengundang').value;
+
+            let salamPembuka = "";
+            let salamPenutup = "";
+
+            if (gaya === "islami") {
+                salamPembuka = "Assalamu'alaikum Warahmatullahi Wabarakatuh\n\nDengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan syukuran pernikahan putra-putri kami:";
+                salamPenutup = "Wassalamu'alaikum Warahmatullahi Wabarakatuh";
+            } else if (gaya === "nasrani") {
+                salamPembuka = "Salam Sejahtera dalam Kasih Kristus\n\nDengan ucapan syukur atas kasih dan karunia Tuhan Yang Maha Kuasa, kami mengundang Bapak/Ibu/Saudara/i pada Pernikahan:";
+                salamPenutup = "Tuhan Yesus Memberkati";
+            } else {
+                salamPembuka = "Dengan Hormat,\n\nTanpa mengurangi rasa hormat, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara pernikahan kami:";
+                salamPenutup = "Atas kehadiran dan doa restu Bapak/Ibu/Saudara/i, kami ucapkan terima kasih.";
+            }
+
+            let teks = `${salamPembuka}\n\n` +
+                       `MEMPELAI:\n` +
+                       `• WANITA: ${wanita}\n` +
+                       `• PRIA: ${pria}\n\n` +
+                       `WAKTU & TEMPAT ACARA:\n` +
+                       `• AKAD/PEMBERKATAN: ${akad}\n` +
+                       `• RESEPSI: ${resepsi}\n\n`;
+
+            if(turut.trim() !== "") {
+                teks += `TURUT MENGUNDANG:\n${turut}\n\n`;
+            }
+
+            teks += `${salamPenutup}`;
+
+            document.getElementById('redaksi').value = teks;
         }
 
         function kirimWhatsApp() {
             if(!activeOrder) { alert("Silakan pilih produk dulu."); return; }
             
             const redaksi = document.getElementById('redaksi').value;
-            if(!redaksi.trim()) { alert("Mohon isi data undangan (nama mempelai, dll)."); return; }
+            if(!redaksi.trim()) { 
+                alert("Mohon klik tombol '⚡ Generate Teks Redaksi' atau isi data redaksi terlebih dahulu."); 
+                return; 
+            }
 
-            const text = `Halo Rana Printing, saya mau pesan:%0A%0A` +
-                         `*KODE: ${activeOrder.kode}*%0A` +
+            const text = `Halo Rana Printing, saya mau pesan undangan:%0A%0A` +
+                         `*KODE DESAIN: ${activeOrder.kode}*%0A` +
                          `Jumlah: ${activeOrder.qty} pcs%0A` +
                          `Varian: ${activeOrder.varian}%0A` +
                          `Harga Satuan: Rp ${activeOrder.satuan.toLocaleString('id-ID')}%0A` +
                          `*TOTAL: Rp ${activeOrder.total.toLocaleString('id-ID')}*%0A%0A` +
-                         `*DATA UNDANGAN:*%0A${encodeURIComponent(redaksi)}%0A%0A` +
-                         `*Bonus Spesial yang Didapat:* Free Plastik, Free Stiker Label, Free Ketik Nama Tamu.%0A%0A` +
-                         `Mohon info proses selanjutnya. Terima kasih.`;
+                         `*DATA REDAKSI UNDANGAN:*%0A${encodeURIComponent(redaksi)}%0A%0A` +
+                         `*Bonus Otomatis:* Free Plastik, Free Stiker Label, Free Ketik Nama Tamu.%0A%0A` +
+                         `Mohon diproses. Terima kasih!`;
             
             window.open(`https://wa.me/6281354637634?text=${text}`, '_blank');
+        }
+
+        /* LIGHTBOX FUNCTIONALITY */
+        function openLightbox(src) {
+            document.getElementById('lightboxImg').src = src;
+            document.getElementById('lightboxModal').style.display = 'grid';
+        }
+        function closeLightbox() {
+            document.getElementById('lightboxModal').style.display = 'none';
         }
     </script>
 </body>
